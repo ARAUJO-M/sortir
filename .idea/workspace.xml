@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcd7049f-1f40-4173-bf52-b9cb1f4779da" name="Default Changelist" comment="install composer - asset/twig/debug/doctrine">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/dev/debug.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/dev/monolog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/prod/deprecations.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/prod/monolog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/test/monolog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/test/twig.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/test/web_profiler.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes/dev/web_profiler.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sortir.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sortir.iml" afterDir="false" />
+    <list default="true" id="fcd7049f-1f40-4173-bf52-b9cb1f4779da" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,25 +140,98 @@
       <option name="presentableId" value="Default" />
       <updated>1602666807015</updated>
       <workItem from="1602666808187" duration="25000" />
-      <workItem from="1602688560048" duration="1270000" />
+      <workItem from="1602688560048" duration="2577000" />
+      <workItem from="1602701335055" duration="2299000" />
     </task>
+    <task id="LOCAL-00001" summary="install composer - asset/twig/debug/doctrine">
+      <created>1602689877817</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602689877817</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="mydrieInstall" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="mydrieInstall" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="install composer - asset/twig/debug/doctrine" />
     <option name="LAST_COMMIT_MESSAGE" value="install composer - asset/twig/debug/doctrine" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="167" y="0" key="CommitChangelistDialog2" timestamp="1602689835415">
+    <state x="293" y="215" key="#Notifications" timestamp="1602702288902">
       <screen x="0" y="0" width="1200" height="862" />
     </state>
-    <state x="167" y="0" key="CommitChangelistDialog2/0.0.1200.862@0.0.1200.862" timestamp="1602689835415" />
+    <state x="293" y="215" key="#Notifications/0.0.1200.862@0.0.1200.862" timestamp="1602702288902" />
+    <state x="167" y="0" key="CommitChangelistDialog2" timestamp="1602689876988">
+      <screen x="0" y="0" width="1200" height="862" />
+    </state>
+    <state x="167" y="0" key="CommitChangelistDialog2/0.0.1200.862@0.0.1200.862" timestamp="1602689876988" />
+    <state x="420" y="289" key="Github.ShareDialog" timestamp="1602702680472">
+      <screen x="0" y="0" width="1200" height="862" />
+    </state>
+    <state x="420" y="289" key="Github.ShareDialog/0.0.1200.862@0.0.1200.862" timestamp="1602702680472" />
     <state x="269" y="2" key="SettingsEditor" timestamp="1602666832610">
       <screen x="0" y="0" width="1536" height="714" />
     </state>
     <state x="269" y="2" key="SettingsEditor/0.0.1536.714@0.0.1536.714" timestamp="1602666832610" />
+    <state x="114" y="124" key="Vcs.Push.Dialog.v2" timestamp="1602703156919">
+      <screen x="0" y="0" width="1024" height="862" />
+    </state>
+    <state x="114" y="124" key="Vcs.Push.Dialog.v2/0.0.1024.862@0.0.1024.862" timestamp="1602703156919" />
+    <state x="134" y="124" key="Vcs.Push.Dialog.v2/0.0.1200.862@0.0.1200.862" timestamp="1602702595016" />
+    <state x="359" y="305" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602701512124">
+      <screen x="0" y="0" width="1200" height="862" />
+    </state>
+    <state x="359" y="305" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1200.862@0.0.1200.862" timestamp="1602701512124" />
+    <state x="342" y="292" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602702716468">
+      <screen x="0" y="0" width="1200" height="862" />
+    </state>
+    <state x="342" y="292" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1200.862@0.0.1200.862" timestamp="1602702716468" />
   </component>
 </project>
