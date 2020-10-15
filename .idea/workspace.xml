@@ -26,8 +26,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcd7049f-1f40-4173-bf52-b9cb1f4779da" name="Default Changelist" comment="">
+    <list default="true" id="96433cca-d85a-4b31-a99c-b5bd57f095a1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +122,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1irXhuQ34ZggrZ3mGF5UdUjVZVB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -172,7 +175,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="mydrieInstall" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -198,6 +201,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="install composer - asset/twig/debug/doctrine" />
