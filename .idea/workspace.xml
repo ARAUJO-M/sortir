@@ -19,9 +19,8 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:dev" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
@@ -41,7 +40,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="mydrieInstall" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -141,7 +140,8 @@
       <updated>1602666807015</updated>
       <workItem from="1602666808187" duration="25000" />
       <workItem from="1602688560048" duration="2577000" />
-      <workItem from="1602701335055" duration="2299000" />
+      <workItem from="1602701335055" duration="4405000" />
+      <workItem from="1602746639324" duration="4131000" />
     </task>
     <task id="LOCAL-00001" summary="install composer - asset/twig/debug/doctrine">
       <created>1602689877817</created>
@@ -150,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602689877817</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="install composer - asset/twig/debug/doctrine">
+      <created>1602703655762</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602703655762</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,7 +179,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="mydrieInstall" />
+                        <option value="dev" />
                       </list>
                     </value>
                   </entry>
@@ -198,6 +205,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="install composer - asset/twig/debug/doctrine" />
@@ -208,9 +216,10 @@
       <screen x="0" y="0" width="1200" height="862" />
     </state>
     <state x="293" y="215" key="#Notifications/0.0.1200.862@0.0.1200.862" timestamp="1602702288902" />
-    <state x="167" y="0" key="CommitChangelistDialog2" timestamp="1602689876988">
-      <screen x="0" y="0" width="1200" height="862" />
+    <state x="143" y="0" key="CommitChangelistDialog2" timestamp="1602703655029">
+      <screen x="0" y="0" width="1024" height="862" />
     </state>
+    <state x="143" y="0" key="CommitChangelistDialog2/0.0.1024.862@0.0.1024.862" timestamp="1602703655029" />
     <state x="167" y="0" key="CommitChangelistDialog2/0.0.1200.862@0.0.1200.862" timestamp="1602689876988" />
     <state x="420" y="289" key="Github.ShareDialog" timestamp="1602702680472">
       <screen x="0" y="0" width="1200" height="862" />
@@ -220,15 +229,21 @@
       <screen x="0" y="0" width="1536" height="714" />
     </state>
     <state x="269" y="2" key="SettingsEditor/0.0.1536.714@0.0.1536.714" timestamp="1602666832610" />
-    <state x="114" y="124" key="Vcs.Push.Dialog.v2" timestamp="1602703156919">
-      <screen x="0" y="0" width="1024" height="862" />
+    <state x="204" y="124" key="Vcs.Push.Dialog.v2" timestamp="1602752141338">
+      <screen x="0" y="0" width="1836" height="862" />
     </state>
-    <state x="114" y="124" key="Vcs.Push.Dialog.v2/0.0.1024.862@0.0.1024.862" timestamp="1602703156919" />
+    <state x="114" y="124" key="Vcs.Push.Dialog.v2/0.0.1024.862@0.0.1024.862" timestamp="1602706037663" />
     <state x="134" y="124" key="Vcs.Push.Dialog.v2/0.0.1200.862@0.0.1200.862" timestamp="1602702595016" />
+    <state x="204" y="124" key="Vcs.Push.Dialog.v2/0.0.1836.862@0.0.1836.862" timestamp="1602752141338" />
     <state x="359" y="305" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602701512124">
       <screen x="0" y="0" width="1200" height="862" />
     </state>
     <state x="359" y="305" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1200.862@0.0.1200.862" timestamp="1602701512124" />
+    <state x="524" y="104" key="git4idea.branch.GitSmartOperationDialog" timestamp="1602749531027">
+      <screen x="0" y="0" width="1836" height="862" />
+    </state>
+    <state x="292" y="104" key="git4idea.branch.GitSmartOperationDialog/0.0.1024.862@0.0.1024.862" timestamp="1602705880255" />
+    <state x="524" y="104" key="git4idea.branch.GitSmartOperationDialog/0.0.1836.862@0.0.1836.862" timestamp="1602749531027" />
     <state x="342" y="292" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602702716468">
       <screen x="0" y="0" width="1200" height="862" />
     </state>
