@@ -1,0 +1,28 @@
+security:
+
+    providers:
+        our_db_provider:
+            entity:
+                class: App\Entity\Participant
+                property: pseudo
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern: ^/
+            provider: our_db_provider
+            anonymous: ~
+            form_login:
+                login_path: user_login
+                check_path: user_login
+            logout_on_user_change: true
+            logout:
+                path: user_logout
+                target: user_login
+
+    encoders:
+        App\Entity\Participant:
+            algorithm: bcrypt
+
