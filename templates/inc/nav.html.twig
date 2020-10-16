@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="idea_title navbar-brand" href="{{ path('user_login') }}" title="Sortir | Connection">
+        <img src="#" alt="">Sortir
+    </a>
+
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#" title="Sortir | Ville">Ville</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" title="Sortir | Campus">Campus</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" title="Sortir | Accueil">Accueil</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ path('user_profile') }}" title="Sortir | Mon profil">Mon profil</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ path('user_logout') }}" title="Sortir | Se déconnecter">Se déconnecter</a></li>
+    </ul>
+        {% endif %}
+</nav>
