@@ -26,30 +26,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcd7049f-1f40-4173-bf52-b9cb1f4779da" name="Default Changelist" comment="install composer maker/validator, création des entités participant/sortie/ville/etat/lieu/campus et validator, début configuration repository participant">
-      <change afterPath="$PROJECT_DIR$/config/packages/test/validator.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/validator.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Campus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Etat.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Lieu.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Participant.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Sortie.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Ville.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CampusRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/EtatRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/LieuRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ParticipantRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/SortieRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/VilleRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_15_10_2020_11_34__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_15_10_2020_11_34__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sortir.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sortir.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+    <list default="true" id="fcd7049f-1f40-4173-bf52-b9cb1f4779da" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +145,8 @@
       <workItem from="1602688560048" duration="2577000" />
       <workItem from="1602701335055" duration="2299000" />
       <workItem from="1602775244547" duration="650000" />
-      <workItem from="1602784785041" duration="15171000" />
+      <workItem from="1602784785041" duration="15464000" />
+      <workItem from="1602832889222" duration="380000" />
     </task>
     <task id="LOCAL-00001" summary="install composer - asset/twig/debug/doctrine">
       <created>1602689877817</created>
@@ -176,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602689877817</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="install composer maker/validator, création des entités participant/sortie/ville/etat/lieu/campus et validator, début configuration repository participant">
+      <created>1602808984624</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602808984624</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,12 +226,12 @@
       <screen x="0" y="0" width="1812" height="840" />
     </state>
     <state x="409" y="130" key="#com.intellij.ide.util.MemberChooser/0.0.1812.840@0.0.1812.840" timestamp="1602798153799" />
-    <state x="392" y="0" key="CommitChangelistDialog2" timestamp="1602808903327">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1602808983765">
       <screen x="0" y="0" width="1592" height="846" />
     </state>
     <state x="167" y="0" key="CommitChangelistDialog2/0.0.1200.862@0.0.1200.862" timestamp="1602689876988" />
     <state x="203" y="0" key="CommitChangelistDialog2/0.0.1456.752@0.0.1456.752" timestamp="1602808448498" />
-    <state x="392" y="0" key="CommitChangelistDialog2/0.0.1592.846@0.0.1592.846" timestamp="1602808903327" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1592.846@0.0.1592.846" timestamp="1602808983765" />
     <state x="964" y="188" key="FileChooserDialogImpl" timestamp="1602784857979">
       <screen x="0" y="0" width="1822" height="888" />
     </state>
@@ -262,12 +248,13 @@
       <screen x="0" y="0" width="1536" height="714" />
     </state>
     <state x="269" y="2" key="SettingsEditor/0.0.1536.714@0.0.1536.714" timestamp="1602666832610" />
-    <state x="162" y="108" key="Vcs.Push.Dialog.v2" timestamp="1602808311966">
-      <screen x="0" y="0" width="1456" height="752" />
+    <state x="177" y="122" key="Vcs.Push.Dialog.v2" timestamp="1602809012031">
+      <screen x="0" y="0" width="1592" height="846" />
     </state>
     <state x="114" y="124" key="Vcs.Push.Dialog.v2/0.0.1024.862@0.0.1024.862" timestamp="1602703156919" />
     <state x="134" y="124" key="Vcs.Push.Dialog.v2/0.0.1200.862@0.0.1200.862" timestamp="1602702595016" />
     <state x="162" y="108" key="Vcs.Push.Dialog.v2/0.0.1456.752@0.0.1456.752" timestamp="1602808311966" />
+    <state x="177" y="122" key="Vcs.Push.Dialog.v2/0.0.1592.846@0.0.1592.846" timestamp="1602809012031" />
     <state x="359" y="305" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602701512124">
       <screen x="0" y="0" width="1200" height="862" />
     </state>
