@@ -19,14 +19,17 @@ class ParticipantRepository extends ServiceEntityRepository
         parent::__construct($registry, Participant::class);
     }
 
-    public function findParticipant()
+    //fonction pour trouver un participant via son pseudo, sélectionne son pseudo, campus et les sorties où il est inscrit
+/*    public function seConnecter()
     {
         return $this->createQueryBuilder('p')
-            ->where('p.mail = ?')
-            ->orWhere('p.pseudo = ?')
-            ->andWhere('p.motPasse = ?');
+            ->where('p.pseudo = :pseudo OR p.mail = :mail')
+            ->setParameter('pseudo',)
+            ->setParameter('mail',)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
-
+*/
     // /**
     //  * @return Participant[] Returns an array of Participant objects
     //  */
@@ -55,4 +58,5 @@ class ParticipantRepository extends ServiceEntityRepository
         ;
     }
     */
+
 }

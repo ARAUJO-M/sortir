@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CampusRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +32,12 @@ class Campus
      * @ORM\OneToMany(targetEntity="App\Entity\Sortie", mappedBy="campusOrganisateur", cascade={"remove"})
      */
     private $sorties;
+
+    public function __construct()
+    {
+        $this->participants = new ArrayCollection();
+        $this->sorties = new ArrayCollection();
+    }
 
     /**
      * @return mixed

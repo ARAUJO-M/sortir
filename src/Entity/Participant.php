@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\ParticipantRepository;
+
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -12,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @UniqueEntity(fields={"mail"}, message="Cet email est déjà utilisé.")
  * @ORM\Entity(repositoryClass="App\Repository\ParticipantRepository")
  */
-class Participant
+class Participant implements UserInterface
 {
     /**
      * @ORM\Id
@@ -39,30 +41,30 @@ class Participant
     /**
      * @Assert\Length(
      *      min = 4,
-     *      max = 25,
+     *      max = 30,
      *      minMessage = "Le pseudo doit être au minimum de {{ limit }} caractères.",
      *      maxMessage = "Le pseudo doit être au maximum de {{ limit }} caractères."
      * )
      * @Assert\Regex(pattern="/^[a-z0-9_-]+$/i", message="Le pseudo ne peut contenir que des caractères alphanumériques.")
      * @ORM\Column (type="string", length=30, unique=true)
      */
-    private $pseudo;
+    private $username;
 
     /**
-     * @ORM\Column (type="string", length=20, unique=true)
+     * @ORM\Column (type="string", length=30, unique=true)
      */
     private $mail;
 
     /**
      * @Assert\Length(
      *      min = 6,
-     *      max = 20,
+     *      max = 30,
      *      minMessage = "Le mot de passe doit être au minimum de {{ limit }} caractères.",
      *      maxMessage = "Le mot de passe doit être au maximum de {{ limit }} caractères."
      * )
-     * @ORM\Column (type="string", length=20)
+     * @ORM\Column (type="string", length=500)
      */
-    private $motPasse;
+    private $password;
 
     /**
      * @ORM\Column (type="boolean")
@@ -85,9 +87,26 @@ class Participant
     private $sorties;
 
     /**
-     * @return mixed
+     * @ORM\ManyToMany(targetEntity="App\Entity\Sortie", mappedBy="participants")
      */
-    public function getId()
+    private $inscriptionsSorties;
+
+    /**
+     * @ORM\Column (type="json", nullable=true)
+     */
+    private $roles = [];
+
+    /**
+     * @ORM\Column (type="string", length=30, nullable=true)
+     */
+    private $photo;
+
+    public function __construct()
+    {
+        $this->sorties = new ArrayCollection();
+    }
+
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -151,22 +170,6 @@ class Participant
     /**
      * @return mixed
      */
-    public function getPseudo()
-    {
-        return $this->pseudo;
-    }
-
-    /**
-     * @param mixed $pseudo
-     */
-    public function setPseudo($pseudo): void
-    {
-        $this->pseudo = $pseudo;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getMail()
     {
         return $this->mail;
@@ -178,22 +181,6 @@ class Participant
     public function setMail($mail): void
     {
         $this->mail = $mail;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMotPasse()
-    {
-        return $this->motPasse;
-    }
-
-    /**
-     * @param mixed $motPasse
-     */
-    public function setMotPasse($motPasse): void
-    {
-        $this->motPasse = $motPasse;
     }
 
     /**
@@ -260,6 +247,61 @@ class Participant
         $this->sorties = $sorties;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param mixed $photo
+     */
+    public function setPhoto($photo): void
+    {
+        $this->photo = $photo;
+    }
+
+    //méthodes implémentées de UserInterface
+    public function getRoles(): array
+    {
+        return ['ROLE_USER'];
+    }
+
+    public function setRoles($roles): Participant
+    {
+        $this->roles = $roles;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function setPassword($password): void
+    {
+        $this->password = $password;
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username): void
+    {
+        $this->username = $username;
+    }
 
 
+    public function eraseCredentials(){}
 }
