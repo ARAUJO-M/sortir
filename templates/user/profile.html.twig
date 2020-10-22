@@ -4,11 +4,53 @@
 
 {% block main %}
 
+    <h2>Mon profil</h2>
+
     {{ form_start(gererProfilForm) }}
 
-    {{ form_widget(gererProfilForm) }}
+<div class="form-group">
+    {{ form_label(gererProfilForm.username) }}
+    {{ form_widget(gererProfilForm.username) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(gererProfilForm.nom) }}
+    {{ form_widget(gererProfilForm.nom) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(gererProfilForm.prenom) }}
+    {{ form_widget(gererProfilForm.prenom) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(gererProfilForm.telephone) }}
+    {{ form_widget(gererProfilForm.telephone) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(gererProfilForm.mail) }}
+    {{ form_widget(gererProfilForm.mail) }}
+</div>
+
+<div class="form-group">
+    {{ form_widget(gererProfilForm.password) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(gererProfilForm.campus) }}
+    {{ form_widget(gererProfilForm.campus) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(gererProfilForm.photo) }}
+    {{ form_widget(gererProfilForm.photo) }}
+</div>
+
     <button type="submit">Enregistrer</button>
+
     <button>Annuler</button>
+
     {{ form_end(gererProfilForm) }}
 
 {% endblock %}

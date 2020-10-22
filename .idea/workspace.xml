@@ -3,10 +3,32 @@
   <component name="BranchesTreeState">
     <expand />
     <select />
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:dev" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcd7049f-1f40-4173-bf52-b9cb1f4779da" name="Default Changelist" comment="">
-    <list default="true" id="96433cca-d85a-4b31-a99c-b5bd57f095a1" name="Default Changelist" comment="">
+    <list default="true" id="fcd7049f-1f40-4173-bf52-b9cb1f4779da" name="Default Changelist" comment=""/>
+    <list default="true" id="96433cca-d85a-4b31-a99c-b5bd57f095a1" name="Default Changelist" comment=""/>
       <change afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap-grid.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap-grid.css.map" afterDir="false" />
@@ -50,12 +72,12 @@
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html.twig" afterDir="false" />
-    </list>
+    </component>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
+  </project>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
@@ -63,7 +85,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="mydrieInstall" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -160,8 +182,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cours" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bucket-list" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -175,6 +196,8 @@
       <updated>1602666807015</updated>
       <workItem from="1602666808187" duration="25000" />
       <workItem from="1602688560048" duration="2577000" />
+      <workItem from="1602701335055" duration="4405000" />
+      <workItem from="1602746639324" duration="4131000" />
       <workItem from="1602701335055" duration="2299000" />
       <workItem from="1602775244547" duration="650000" />
       <workItem from="1602784785041" duration="15464000" />
@@ -193,6 +216,14 @@
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
       <updated>1602808984624</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00002" summary="install composer - asset/twig/debug/doctrine">
+      <created>1602703655762</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602703655762</updated>
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
@@ -241,6 +272,7 @@
                   <entry key="branch">
                     <value>
                       <list>
+                        <option value="dev" />
                         <option value="feature-controller" />
                       </list>
                     </value>
@@ -300,9 +332,12 @@
       <screen x="0" y="0" width="1812" height="840" />
     </state>
     <state x="409" y="130" key="#com.intellij.ide.util.MemberChooser/0.0.1812.840@0.0.1812.840" timestamp="1602798153799" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1602808983765">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1602808983765"/>
       <screen x="0" y="0" width="1592" height="846" />
+    <state x="143" y="0" key="CommitChangelistDialog2" timestamp="1602703655029">
+      <screen x="0" y="0" width="1024" height="862" />
     </state>
+    <state x="143" y="0" key="CommitChangelistDialog2/0.0.1024.862@0.0.1024.862" timestamp="1602703655029" />
     <state x="167" y="0" key="CommitChangelistDialog2/0.0.1200.862@0.0.1200.862" timestamp="1602689876988" />
     <state width="277" height="442" key="Diff.GoToChangePopup" timestamp="1602839664817">
       <screen x="0" y="0" width="1920" height="928" />
@@ -334,11 +369,14 @@
       <screen x="0" y="0" width="1536" height="714" />
     </state>
     <state x="269" y="2" key="SettingsEditor/0.0.1536.714@0.0.1536.714" timestamp="1602666832610" />
+    <state x="204" y="124" key="Vcs.Push.Dialog.v2" timestamp="1602752141338"/>
+      <screen x="0" y="0" width="1836" height="862" />
     <state x="177" y="122" key="Vcs.Push.Dialog.v2" timestamp="1602809012031">
       <screen x="0" y="0" width="1592" height="846" />
     </state>
-    <state x="114" y="124" key="Vcs.Push.Dialog.v2/0.0.1024.862@0.0.1024.862" timestamp="1602703156919" />
+    <state x="114" y="124" key="Vcs.Push.Dialog.v2/0.0.1024.862@0.0.1024.862" timestamp="1602706037663" />
     <state x="134" y="124" key="Vcs.Push.Dialog.v2/0.0.1200.862@0.0.1200.862" timestamp="1602702595016" />
+    <state x="204" y="124" key="Vcs.Push.Dialog.v2/0.0.1836.862@0.0.1836.862" timestamp="1602752141338" />
     <state x="652" y="198" key="VcsDiffUtil.ChangesDialog" timestamp="1602838558768">
       <screen x="0" y="0" width="1920" height="928" />
     </state>
@@ -353,6 +391,11 @@
       <screen x="0" y="0" width="1200" height="862" />
     </state>
     <state x="359" y="305" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1200.862@0.0.1200.862" timestamp="1602701512124" />
+    <state x="524" y="104" key="git4idea.branch.GitSmartOperationDialog" timestamp="1602749531027">
+      <screen x="0" y="0" width="1836" height="862" />
+    </state>
+    <state x="292" y="104" key="git4idea.branch.GitSmartOperationDialog/0.0.1024.862@0.0.1024.862" timestamp="1602705880255" />
+    <state x="524" y="104" key="git4idea.branch.GitSmartOperationDialog/0.0.1836.862@0.0.1836.862" timestamp="1602749531027" />
     <state x="342" y="292" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602702716468">
       <screen x="0" y="0" width="1200" height="862" />
     </state>

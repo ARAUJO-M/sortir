@@ -20,6 +20,11 @@
         {% include('inc/nav.html.twig') %}
     </header>
 
+        {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+        {% endfor %}
     <main>
         {% block main %}
 

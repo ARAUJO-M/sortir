@@ -28,6 +28,11 @@ class Sortie
     private $dateHeureDebut;
 
     /**
+     * @ORM\Column (type="date", nullable=true)
+     */
+    private $dateFin;
+
+    /**
      * @ORM\Column (type="integer", nullable=true)
      */
     private $duree;
@@ -119,6 +124,23 @@ class Sortie
     {
         $this->dateHeureDebut = $dateHeureDebut;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDateFin()
+    {
+        return $this->dateFin;
+    }
+
+    /**
+     * @param mixed $dateHFin
+     */
+    public function setDateFin($dateFin): void
+    {
+        $this->dateFin = $dateFin;
+    }
+
 
     /**
      * @return mixed
