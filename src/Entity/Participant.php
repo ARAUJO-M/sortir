@@ -250,6 +250,23 @@ class Participant implements UserInterface
     /**
      * @return mixed
      */
+    public function getInscriptionsSorties()
+    {
+        return $this->inscriptionsSorties;
+    }
+
+    /**
+     * @param mixed $inscriptionsSorties
+     */
+    public function setInscriptionsSorties($inscriptionsSorties): void
+    {
+        $this->inscriptionsSorties = $inscriptionsSorties;
+    }
+
+
+    /**
+     * @return mixed
+     */
     public function getPhoto()
     {
         return $this->photo;

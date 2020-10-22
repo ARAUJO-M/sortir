@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} Accueil {% endblock %}
+
+{% block main %}
+    <div>
+    {# formulaire de recherche filtrée pour les sorties #}
+    {% include 'sortie/AfficherSorties.html.twig' %}
+    </div>
+
+    <div>
+    {# listing des sorties filtrées #}
+        {# todo: boucle pour affichage pour chaque sortie #}
+        {% for sortie in  sorties%}
+
+            {% include 'sortie/encartSortie.html.twig' %}
+        {% else %}
+            <p>Aucun résultat</p>
+        {% endfor %}
+
+    </div>
+
+    <div>
+        <a href="#" class="creer_sortie">Créer une sortie</a>
+    </div>
+
+{% endblock %}
+
