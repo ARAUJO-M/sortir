@@ -50,80 +50,81 @@ class SortieRepository extends ServiceEntityRepository
         ;
     }
     */
+    /**
+     * @param AfficherSortiesData $data
+     * @param UserInterface $getUser
+     * @return int|mixed|string|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function trouverSortie(AfficherSortiesData $data, UserInterface $getUser)
     {
         //instancier les formats date du form, place option par défaut date/heure du jour
         $dateTime = new \DateTime('now');
 
         //selection de la sortie et de son campus orga + état qui doit être en sortie créée
-        $query = $this->createQueryBuilder('s')
-            ->select('c', 's', 'e')
+        $qb = $this->createQueryBuilder('s');
+        $qb->select('c', 's', 'e')
             ->join('s.campusOrganisateur', 'c')
             ->join('s.etatSortie', 'e')
-            ->andWhere('e.libelle != (:etat)') //todo: vérifier la pertinence
-            ->setParameter('etat', 'créée')
+            ->andWhere('e.libelle != (:libelle)') //todo: vérifier la pertinence
+            ->setParameter('libelle', 'créée')
             ->andWhere('s.dateHeureDebut > (:date)')
             ->setParameter('date', $dateTime)
             ->orderBy('s.dateHeureDebut', 'DESC');
 
         //condition si le champ campus est indiqué
         if(!empty($data->campus)){
-            $query = $query
-                ->andWhere('c.id = (:campus)')
-                ->setParameter('campus', $data->campus);
+            $qb->andWhere('c.nom = (:campus)') //'c.id = (:campus)'
+               ->setParameter('campus', $data->campus);
 
         }
         //condition si le champ nom de la sortie remplie
         if(!empty($data->nom)){
-            $query = $query
-                ->andWhere('s.nom LIKE :nom') //doc doctrine : ('cat.name LIKE :searchTerm')
-                ->setParameter('nom', "%{$data->nom}%"); //doc doctrine : ('searchTerm', '%'.$term.'%')
+            $qb->andWhere('s.nom LIKE :nom') //doc doctrine : ('cat.name LIKE :searchTerm')
+            ->setParameter('nom', "%{$data->nom}%"); //doc doctrine : ('searchTerm', '%'.$term.'%')
         }
         //conditions des différentes checkbox
-        if(!empty($data->organisateur == true)){
-            $query = $query
-                ->andWhere('s.participantOrganisateur = (:organisateur)')
+        if($data->organisateur == true){
+            $qb->andWhere('s.participantOrganisateur = (:organisateur)')
                 ->setParameter('organisateur', $getUser);
         }
 
-        if(!empty($data->inscrit == true)){
-            $query = $query
-                ->addSelect('i') //alias inscrit
-                ->join('s.participants', 'i')
-                ->andWhere('i.id =(:participant)')
-                ->setParameter('participant', $getUser);
+        if($data->inscrit == true && $data->nonInscrit == true){
+
+        } else {
+            if($data->inscrit == true){
+                $qb->addSelect('i') //alias inscrit
+                    ->join('s.participants', 'i')
+                    ->andWhere('i.username = (:participant)') //'i.id = (:participant)'
+                    ->setParameter('participant', $getUser); //'participant', $getUser
+            }
+
+            if($data->nonInscrit == true){
+                $qb->addSelect('ni') //alias non inscrit
+                    ->leftJoin('s.participants', 'ni') //join
+                    ->andWhere('ni.username is null OR ni.username != (:participant)') //'ni.id is null OR ni.id != (:participant)'
+                    ->setParameter('participant', $getUser); //'participant', $getUser
+            }
         }
 
-        if(!empty($data->nonInscrit == true)){
-            $query = $query
-                ->addSelect('ni') //alias non inscrit
-                ->join('s.participants', 'ni')
-                ->andWhere('ni.id is null OR ni.id != (:participant)')
-                ->setParameter('participant', $getUser);
+        if($data->sortiePassee == true){
+            $qb->andWhere('e.libelle = (:etat)') //'e.libelle = (:libelle)'
+                ->setParameter('etat', 'clôturée'); //'libelle', 'cloturée'
         }
 
-        if(!empty($data->sortiePassee == true)){
-            $query = $query
-                ->andWhere('e.libelle = (:libelle)')
-                ->setParameter('libelle', 'cloturée');
-        }
-
-        if(!empty($data->dateHeureDebut !== null)){
-            $query = $query
-                ->andWhere('s.dateHeureDebut >= (:dateHeureDebut)')
+        if($data->dateHeureDebut !== null){
+            $qb->andWhere('s.dateHeureDebut > = (:dateHeureDebut)')
                 ->setParameter('dateHeureDebut', $data->dateHeureDebut);
         }
 
-        if(!empty($data->dateFin !== null)){
-            $query = $query
-                ->andWhere('s.dateFin >= (:dateFin)')
+        if($data->dateFin !== null){
+            $qb->andWhere('s.dateHeureDebut < = (:dateFin)') //'s.dateFin >= (:dateFin)'
                 ->setParameter('dateFin', $data->dateFin);
         }
 
-        return $query
-            ->getQuery()
-            ->getOneOrNullResult();
-
-
+        $query = $qb->getQuery();
+        $result = $query->getResult();
+        return $result;
     }
+
 }

@@ -57,7 +57,7 @@ class AfficherSortiesType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => AfficherSortiesData::class,
-            'method' => 'post',
+            'method' => 'get',
             'csrf_protection' => true
         ]);
     }

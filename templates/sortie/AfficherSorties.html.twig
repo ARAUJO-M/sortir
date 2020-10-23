@@ -1,11 +1,26 @@
 
 
-{% block main %}
-
     {{ form_start(formSortie) }}
-
-    {{ form_widget(formSortie) }}
+    <div>
+    {{ form_row(formSortie.nom) }}
+    </div>
+    <div>
+    {{ form_row(formSortie.campus) }}
+    </div>
+    <div>
+    {{ form_row(formSortie.dateHeureDebut) }}
+    {{ form_row(formSortie.dateFin) }}
+    </div>
+    <div>
+    {{ form_row(formSortie.organisateur) }}
+    </div>
+    <div>
+    {{ form_row(formSortie.inscrit) }}
+    </div>
+    {{ form_row(formSortie.nonInscrit) }}
+    <div>
+    {{ form_row(formSortie.sortiePassee) }}
+    </div>
 
     {{ form_end(formSortie) }}
 
-{% endblock %}
