@@ -17,20 +17,32 @@ class UserController extends AbstractController
      */
     public function profile(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $manager)
     {
+        //Récupération du membre par son Id
+        $user = $manager->getRepository(Participant::class)->find($this->getUser()->getId());
 
-        $user = $this->getUser();
+        //Récupération du mot de passe actuel du membre
+        $currentPassword = $user->getPassword();
 
+        //Création du formulaire
         $gererProfilForm = $this->createForm(GererProfilType::class, $user);
 
+
+        //Récupération les données du formulaire
         $gererProfilForm->handleRequest($request);
 
         if($gererProfilForm->isSubmitted() && $gererProfilForm->isValid())
         {
+            //Récupération mdp du formulaire
+            $password = $gererProfilForm->get('password')->getData();
 
-            $user = $gererProfilForm->getData();
-
-            $hashed = $encoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($hashed);
+            //Mise à jour du mot de passe
+            if(!empty($password)) {
+                //Le mot de passe du formulaire
+                $user->setPassword($encoder->encodePassword($user, $password));
+            }else{
+                //On garde l'ancien mdp
+                    $user->setPassword($currentPassword);
+            }
 
             $manager->persist($user);
             $manager->flush();
