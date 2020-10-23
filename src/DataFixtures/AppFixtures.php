@@ -2,7 +2,10 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Campus;
+use App\Entity\Etat;
 use App\Entity\Participant;
+use App\Entity\Sortie;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -18,7 +21,9 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $participant = new Participant();
+        //Création d'un participant dans le BDD
+
+        /*$participant = new Participant();
         $participant->setNom('nom');
         $participant->setPrenom('prenom');
         $participant->setTelephone('0626020202');
@@ -31,6 +36,7 @@ class AppFixtures extends Fixture
         $participant->setRoles(['ROLE_USER']);
 
         $manager->persist($participant);
-        $manager->flush();
+        $manager->flush();*/
+
     }
 }

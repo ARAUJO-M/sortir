@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @UniqueEntity(fields={"pseudo"}, message="Ce pseudo est déjà utilisé.")
+ * @UniqueEntity(fields={"username"}, message="Ce pseudo est déjà utilisé.")
  * @UniqueEntity(fields={"mail"}, message="Cet email est déjà utilisé.")
  * @ORM\Entity(repositoryClass="App\Repository\ParticipantRepository")
  */
