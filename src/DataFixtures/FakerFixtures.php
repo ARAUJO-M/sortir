@@ -1,5 +1,7 @@
 <?php
+
 namespace App\DataFixtures;
+
 use App\Entity\Campus;
 use App\Entity\Etat;
 use App\Entity\Lieu;
@@ -10,13 +12,16 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 class FakerFixtures extends Fixture
 {
+
     //Pour encoder les mots de passe des utilisateurs
     /**
      * @var UserPasswordEncoderInterface
      */
     private $encoder;
+
     /**
      * FakerFixtures constructor.
      * @param UserPasswordEncoderInterface $encoder
@@ -25,11 +30,15 @@ class FakerFixtures extends Fixture
     {
         $this->encoder = $encoder;
     }
+
     // Création des utilisateurs + des sorties
+
     public function load(ObjectManager $manager)
     {
+
         //Initialisation de l'objet Faker
         $faker = Faker\Factory::create('fr_FR');
+
         //Création des différents campus
         $campus_name = array("Nantes", "Niort", "Rennes");
         $campus = [];
@@ -42,8 +51,9 @@ class FakerFixtures extends Fixture
         }
 
 
+
         //Création des utilisateurs
-        $user = [];
+       $user = [];
         for($i=0; $i<15; $i++)
         {
             $user[$i] = new Participant();
@@ -56,10 +66,13 @@ class FakerFixtures extends Fixture
             $user[$i]->setPassword($password);
             $user[$i]->setAdministrateur(false);
             $user[$i]->setActif(true);
+
             $manager->persist($user[$i]);
             $manager->flush();
         }
+
         //Création des différents états des sorties
+
         $etat_name = ["Créée", "Ouverte", "Cloturée", "En cours", "Passées", "Annulée"];
         $etatSortie = [];
         foreach($etat_name as $value){
@@ -69,6 +82,7 @@ class FakerFixtures extends Fixture
             $manager->persist($etat);
             $manager->flush();
         }
+
 
         //Création des villes
         $ville = [];
@@ -82,7 +96,7 @@ class FakerFixtures extends Fixture
         }
 
         //Création de lieu
-        $lieu = [];
+       $lieu = [];
         for($i=0; $i<10; $i++)
         {
             $lieu[$i] = new Lieu();
