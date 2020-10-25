@@ -1,11 +1,143 @@
 {% extends 'layout.html.twig' %}
 
+{% form_theme creerSortieForm 'sortie/bootstrap_4_layout.html.twig' %}
+
+{% block title %} {{ parent() }} | Créer une sortie {% endblock %}
+
 {% block main %}
-<h1>Créer une sortie</h1>
-    {{ form_start(creerSortieForm) }}
-    {{ form_widget(creerSortieForm) }}
-    <button type="submit" name="enregistrer">Enregistrer</button>
-    <button type="submit" name="publier">Publier la sortie</button>
-    <button type="reset" name="annuler">Annuler</button>
-    {{ form_end(creerSortieForm) }}
+    <div class="container">
+
+        <div class="row mb-4 mt-4">
+            <div class="col text-center">
+                <h2>Créer une sortie</h2>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-5">
+                {{ form_start(creerSortieForm) }}
+
+                <div>
+                    <div class="form-group row">
+                        <div class="col-sm-5 col-form-label">
+                            {{ form_label(creerSortieForm.nom) }}
+                        </div>
+                        <div class="col-sm-7">
+                            {{ form_widget(creerSortieForm.nom) }}
+                        </div>
+                        {{ form_errors(creerSortieForm.nom) }}
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-5 col-form-label">
+                            {{ form_label(creerSortieForm.dateHeureDebut) }}
+                        </div>
+                        <div class="col-sm-7">
+                            {{ form_widget(creerSortieForm.dateHeureDebut) }}
+                        </div>
+                        {{ form_errors(creerSortieForm.dateHeureDebut) }}
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-5 col-form-label">
+                            {{ form_label(creerSortieForm.dateLimiteInscription) }}
+                        </div>
+                        <div class="col-sm-7">
+                            {{ form_widget(creerSortieForm.dateLimiteInscription) }}
+                        </div>
+                        {{ form_errors(creerSortieForm.dateLimiteInscription) }}
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-5 col-form-label">
+                            {{ form_label(creerSortieForm.nbInscriptionsMax) }}
+                        </div>
+                        <div class="col-sm-7">
+                            {{ form_widget(creerSortieForm.nbInscriptionsMax) }}
+                        </div>
+                        {{ form_errors(creerSortieForm.nbInscriptionsMax) }}
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-5 col-form-label">
+                            {{ form_label(creerSortieForm.duree) }}
+                        </div>
+                        <div class="col-sm-7">
+                            {{ form_widget(creerSortieForm.duree) }}
+                        </div>
+                        {{ form_errors(creerSortieForm.duree) }}
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-5 col-form-label">
+                            {{ form_label(creerSortieForm.infosSortie) }}
+                        </div>
+                        <div class="col-sm-7">
+                            {{ form_widget(creerSortieForm.infosSortie) }}
+                        </div>
+                        {{ form_errors(creerSortieForm.infosSortie) }}
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+            <div class="col-lg-5">
+                <div>
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-form-label">
+                            {{ form_label(creerSortieForm.ville) }}
+                        </div>
+                        <div class="col-sm-8">
+                            {{ form_widget(creerSortieForm.ville) }}
+                        </div>
+                        {{ form_errors(creerSortieForm.ville) }}
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-form-label">
+                            {{ form_label(creerSortieForm.lieu) }}
+                        </div>
+                        <div class="col-sm-8">
+                            {{ form_widget(creerSortieForm.lieu) }}
+                        </div>
+                        {{ form_errors(creerSortieForm.lieu) }}
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-form-label">
+                            {{ form_label(creerSortieForm.latitude) }}
+                        </div>
+                        <div class="col-sm-8">
+                            {{ form_widget(creerSortieForm.latitude) }}
+                        </div>
+                        {{ form_errors(creerSortieForm.latitude) }}
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-form-label">
+                            {{ form_label(creerSortieForm.longitude) }}
+                        </div>
+                        <div class="col-sm-8">
+                            {{ form_widget(creerSortieForm.longitude) }}
+                        </div>
+                        {{ form_errors(creerSortieForm.longitude) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center mt-5">
+            <div class="col">
+                <button type="submit button" class="btn btn-secondary btn-lg">Enregistrer</button>
+                <button type="submit" class="btn btn-secondary btn-lg">Publier la sortie</button>
+                <button type="reset button" class="btn btn-secondary btn-lg">Annuler</button>
+
+            </div>
+        </div>
+
+        {{ form_end(creerSortieForm) }}
+
+    </div>
 {% endblock %}

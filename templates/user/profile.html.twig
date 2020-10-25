@@ -1,64 +1,114 @@
 {% extends "layout.html.twig" %}
 
-{% block title %}Gérer mon profil {% endblock %}
+{% form_theme gererProfilForm 'user/bootstrap_4_layout.html.twig' %}
+
+{% block title %} {{ parent() }} |  Gérer mon profil {% endblock %}
 
 {% block main %}
 
-    <h2>Mon profil</h2>
+    <div class="container">
 
-    {{ form_start(gererProfilForm) }}
+        <div class="row mb-4 mt-4">
+            <div class="col text-center">
+                <h2>Mon profil</h2>
+            </div>
+        </div>
 
-<div class="form-group">
-    {{ form_label(gererProfilForm.username) }}
-    {{ form_widget(gererProfilForm.username) }}
-    {{ form_errors(gererProfilForm.username) }}
-</div>
+        <div class="row justify-content-center">
+            <div class="col-lg-5 ml-auto mr-auto">
 
-<div class="form-group">
-    {{ form_label(gererProfilForm.nom) }}
-    {{ form_widget(gererProfilForm.nom) }}
-    {{ form_errors(gererProfilForm.nom) }}
-</div>
 
-<div class="form-group">
-    {{ form_label(gererProfilForm.prenom) }}
-    {{ form_widget(gererProfilForm.prenom) }}
-    {{ form_errors(gererProfilForm.prenom) }}
-</div>
+                {{ form_start(gererProfilForm) }}
 
-<div class="form-group">
-    {{ form_label(gererProfilForm.telephone) }}
-    {{ form_widget(gererProfilForm.telephone) }}
-    {{ form_errors(gererProfilForm.telephone) }}
-</div>
+                <div class="form-group row">
+                    <div class="col-sm-3 col-form-label">
+                        {{ form_label(gererProfilForm.username) }}
+                    </div>
+                    <div class="col-sm-9">
+                        {{ form_widget(gererProfilForm.username) }}
+                    </div>
+                    {{ form_errors(gererProfilForm.username) }}
+                </div>
 
-<div class="form-group">
-    {{ form_label(gererProfilForm.mail) }}
-    {{ form_widget(gererProfilForm.mail) }}
-    {{ form_errors(gererProfilForm.mail) }}
-</div>
+                <div class="form-group row">
+                    <div class="col-sm-3 col-form-label">
+                        {{ form_label(gererProfilForm.nom) }}
+                    </div>
+                    <div class="col-sm-9">
+                        {{ form_widget(gererProfilForm.nom) }}
+                    </div>
+                    {{ form_errors(gererProfilForm.nom) }}
+                </div>
 
-<div class="form-group">
-    {{ form_widget(gererProfilForm.password) }}
-    {{ form_errors(gererProfilForm.password) }}
-</div>
+                <div class="form-group row">
+                    <div class="col-sm-3 col-form-label">
+                        {{ form_label(gererProfilForm.prenom) }}
+                    </div>
+                    <div class="col-sm-9">
+                        {{ form_widget(gererProfilForm.prenom) }}
+                    </div>
+                    {{ form_errors(gererProfilForm.prenom) }}
+                </div>
 
-<div class="form-group">
-    {{ form_label(gererProfilForm.campus) }}
-    {{ form_widget(gererProfilForm.campus) }}
-</div>
+                <div class="form-group row">
+                    <div class="col-sm-3 col-form-label">
+                        {{ form_label(gererProfilForm.telephone) }}
+                    </div>
+                    <div class="col-sm-9">
+                        {{ form_widget(gererProfilForm.telephone) }}
+                    </div>
+                    {{ form_errors(gererProfilForm.telephone) }}
+                </div>
 
-<div class="form-group">
-    {{ form_label(gererProfilForm.photo) }}
-    {{ form_widget(gererProfilForm.photo) }}
-</div>
+                <div class="form-group row">
+                    <div class="col-sm-3 col-form-label">
+                        {{ form_label(gererProfilForm.mail) }}
+                    </div>
+                    <div class="col-sm-9">
+                        {{ form_widget(gererProfilForm.mail) }}
+                    </div>
+                    {{ form_errors(gererProfilForm.mail) }}
+                </div>
 
-    <button type="submit">Enregistrer</button>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        {{ form_widget(gererProfilForm.password) }}
+                    </div>
+                    {{ form_errors(gererProfilForm.password) }}
+                </div>
 
-    <button type="reset">Annuler</button>
+                <div class="form-group row">
+                    <div class="col-sm-3 col-form-label">
+                        {{ form_label(gererProfilForm.campus) }}
+                    </div>
+                    <div class="col-sm-9">
+                        {{ form_widget(gererProfilForm.campus) }}
+                    </div>
+                </div>
 
-    {{ form_end(gererProfilForm) }}
+                <div class="form-group row">
+                    <div class="col-sm-3 col-form-label">
+                        {{ form_label(gererProfilForm.photo) }}
+                    </div>
+                    <div class="col-sm-9">
+                        {{ form_widget(gererProfilForm.photo) }}
+                    </div>
+                </div>
 
+                <div class="row text-center">
+                    <div class="col">
+                        <button type="submit button" class="btn btn-secondary btn-lg">Enregistrer</button>
+
+                        <button type="reset button" class="btn btn-secondary btn-lg">Annuler</button>
+
+                    </div>
+                </div>
+
+
+                {{ form_end(gererProfilForm) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 
