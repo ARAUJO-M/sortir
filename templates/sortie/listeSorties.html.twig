@@ -4,16 +4,92 @@
 
 {% block main %} {{ parent() }}
 
+    {# affichage des messages addFlash #}
+    {% for message in app.flashes('success') %}
+        <div class="container flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <h5> Bienvenue {{ app.user.username }}, <br> {{ date('now')|date('d/m/Y') }}</h5>
+    {# TODO: mettre nom user / campus / date du jour #}
 
     {# formulaire de recherche filtrée pour les sorties #}
-    {% include ('sortie/AfficherSorties.html.twig')  %}
+    {% include ('sortie/AfficherSorties.html.twig') with {form: formSortie} only %}
+<br>
+   {# affichage tableau liste sorties filtrées #}
+    <table class="table table-striped table-hover table-responsive ">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">Nom de la sortie</th>
+        <th scope="col">Date de la sortie</th>
+        <th scope="col">Clôture</th>
+        <th scope="col">Inscrits/Places</th>
+        <th scope="col">Etat</th>
+        <th scope="col">Inscrit</th>
+        <th scope="col">Organisateur</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
 
+    {% for sortie in sorties %}
 
+    {% set dateLimiteInscription = sortie.dateLimiteInscription|date('m/d/Y') %}
 
-    {# TODO: paramétrer l'affichage en listing #}
+    {% if sortie.etatSortie != 'Archivee' %}
 
+    <tbody>
+    <tr>
+        <td>{{ sortie.nom }}</td>
+        <td>{{ sortie.dateHeureDebut|date('d/m/Y à H:i') }}</td>
+        <td>{{ sortie.dateLimiteInscription|date('m/d/Y') }}</td>
+        <td>{{ sortie.participants|length }}/{{ sortie.nbInscriptionsMax }}</td>
 
+        {# état sortie // todo: à revoir car ne s'affiche pas #}
+        <td>État</td>
+        {% if sortie.etatSortie == 'Creee' %}
+        <td>Créée</td>
+        {% elseif sortie.etatSortie == 'Ouverte' %}
+        <td>Ouverte</td>
+        {% elseif sortie.etatSortie == 'Cloturee' %}
+        <td>{{ sortie.etatSortie }}</td>
+        {% elseif sortie.etatSortie == 'En cours' %}
+        <td>{{ sortie.etatSortie }}</td>
+        {% elseif sortie.etatSortie == 'Passee' %}
+        <td>{{ sortie.etatSortie }}</td>
+        {% elseif sortie.etatSortie == 'Annulee' %}
+        <td>{{ sortie.etatSortie }}</td>
+        {% endif %}
 
+        {# si user inscrit #}
+        {% set inscrit = false %}
+        {% for inscription in app.user.inscriptionsSorties%}
+            {% for inscriptions in sortie.participants %}
+                {% if inscription == inscriptions %}
+                    {% set inscrit = true %}
+                {% endif %}
+            {% endfor %}
+        {% endfor%}
+        {% if inscrit %}
+            <td>Oui</td>
+        {% else %}
+            <td>Non</td>
+        {% endif %}
+
+        {# lien vers affichage profil du participant organisateur #}
+            <td>
+                <a href="{{ path('sorties_detail', {id: sortie.id}) }}">{# afficher le participant organisateur #}</a>
+            </td>
+
+        {# lien vers affichage détail sortie #}
+        <td>
+            <a href="#">Afficher</a>
+        </td>
+    </tr>
+    </tbody>
+    </table>
+    {% endif %}
+    {% endfor %}
 
 
 
