@@ -62,7 +62,7 @@ class GoOutController extends AbstractController
     /**
      * @Route("/sorties/detail/{id}", name="sorties_detail", requirements={"id": "\d+"})
      */
-    public function detailSortie ($id, SortieRepository $repository, EntityManagerInterface $em)
+    public function detailSortie ($id, SortieRepository $repository)
     {
         //Récupération de la sortie pour son id
        $sortie = $repository->findOneBy(['id'=>$id]); //selectionne l'id de la sortie
