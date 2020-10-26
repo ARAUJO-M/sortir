@@ -21,30 +21,49 @@ class GoOutController extends AbstractController
     /**
      * @Route("/accueil", name="sorties_accueil")
      */
-    public function accueil (SortieRepository $repository, Request $request)
+    public function accueil (EntityManagerInterface $em, Request $request) //SortieRepository $repository
     {
+        //$data = new AfficherSortiesData();
+       // $sortie = new Sortie();
+       // $formSortie =  $this->createForm(AfficherSortiesType::class, $data);
+       // $formSortie->handleRequest($request);
+       // $getUser = $this->getUser(); //récupère l'utilisateur en cours
+      //  $sorties = $repository->trouverSortie($data, $this->getUser()); //appelle méthode de recherche du SortieRepository
+
+       // return $this->render("sortie/listeSorties.html.twig", [
+       //         "sorties" => $sorties,
+       //         "getUser" => $getUser,
+       //         "formSortie" => $formSortie->createView()
+    //]);
+
+        $sortieRepository = $em->getRepository(Sortie::class);
+        $sorties = $sortieRepository->findAll();
+
         $data = new AfficherSortiesData();
-        $formSortie =  $this->createForm(AfficherSortiesType::class, $data);
+        $formSortie = $this->createForm(AfficherSortiesType::class, $data);
         $formSortie->handleRequest($request);
-        $getUser = $this->getUser(); //récupère l'utilisateur en cours
-        $sorties = $repository->trouverSortie($data, $this->getUser()); //appelle méthode de recherche du SortieRepository
 
-        return $this->render("sortie/listeSorties.html.twig", [
-                "sorties" => $sorties,
-                "getUser" => $getUser,
-                "formSortie" => $formSortie->createView()
+        $getUser = $this->getUser();
 
-    ]);
+        $sortiesFiltrees = $sortieRepository->trouverSortie($data, $getUser);
+        $sorties = $sortiesFiltrees;
+
+        return $this->render('sortie/listeSorties.html.twig', [
+            'sorties' => $sorties,
+            'sortiesFiltrees' => $sortiesFiltrees,
+            'formSortie' => $formSortie->createView()
+        ]);
+
 
     }
 
- //   /**
- //    * @Route("/sorties/detail/{id}", name="sorties_detail", requirements={"id": "\d+"})
- //    */
- /*   public function detailSortie ($id, SortieRepository $repository)
+    /**
+     * @Route("/sorties/detail/{id}", name="sorties_detail", requirements={"id": "\d+"})
+     */
+    public function detailSortie ($id, SortieRepository $repository)
     {
-    //    $date = new \DateTime('now');
-    //    $sortie = $repository->findOneBy(['id'=>$id]); //selectionne l'id de la sortie
+        $date = new \DateTime('now');
+        $sortie = $repository->findOneBy(['id'=>$id]); //selectionne l'id de la sortie
 
         //todo: scénario si sorties passées : consultable mais plus d'inscription / date limite inscription aussi
 
@@ -52,7 +71,7 @@ class GoOutController extends AbstractController
             'sortie' => $sortie
         ]);
     }
-*/
+
     /**
      * @Route("/sortie/creer", name="sortie_creer")
      */

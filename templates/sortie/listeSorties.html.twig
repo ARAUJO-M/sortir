@@ -46,19 +46,19 @@
         <td>{{ sortie.participants|length }}/{{ sortie.nbInscriptionsMax }}</td>
 
         {# état sortie // todo: à revoir car ne s'affiche pas #}
-        <td>État</td>
-        {% if sortie.etatSortie == 'Creee' %}
+        <td>État</td> {# todo: à supprimer une fois que le code dessous sera opérationnel #}
+        {% if sortie.etatSortie == 'Créée' %}
         <td>Créée</td>
         {% elseif sortie.etatSortie == 'Ouverte' %}
         <td>Ouverte</td>
         {% elseif sortie.etatSortie == 'Cloturee' %}
-        <td>{{ sortie.etatSortie }}</td>
+        <td>Cloturée</td>
         {% elseif sortie.etatSortie == 'En cours' %}
-        <td>{{ sortie.etatSortie }}</td>
+        <td>En cours</td>
         {% elseif sortie.etatSortie == 'Passee' %}
-        <td>{{ sortie.etatSortie }}</td>
+        <td>Passée</td>
         {% elseif sortie.etatSortie == 'Annulee' %}
-        <td>{{ sortie.etatSortie }}</td>
+        <td>Annulée</td>
         {% endif %}
 
         {# si user inscrit #}
@@ -78,7 +78,7 @@
 
         {# lien vers affichage profil du participant organisateur #}
             <td>
-                <a href="{{ path('sorties_detail', {id: sortie.id}) }}">{# afficher le participant organisateur #}</a>
+                <a href="#">{# afficher le participant organisateur #}</a>
             </td>
 
         {# lien vers affichage détail sortie #}

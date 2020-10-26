@@ -1,4 +1,4 @@
-{% form_theme formSortie 'sortie/bootstrap_4_layout.html.twig' %}
+{% form_theme form 'sortie/bootstrap_4_layout.html.twig' %}
 
 <div class="container-fluid">
 
@@ -11,41 +11,41 @@
     <div class="row mt-5 mb-5">
 
         <div class="col-lg-5 ml-3">
-        {{ form_start(formSortie) }}
+        {{ form_start(form) }}
 
 
             <div>
                 <div class="form-group row">
                     <div class="col-sm-2 col-form-label">
-                        {{ form_label(formSortie.campus) }}
+                        {{ form_label(form.campus) }}
                     </div>
                     <div class="col-sm-8">
-                        {{ form_widget(formSortie.campus) }}
+                        {{ form_widget(form.campus) }}
                     </div>
                 </div>
 
 
                 <div class="form-group row">
                     <div class="col-sm-3 col-form-label">
-                        {{ form_label(formSortie.nom) }}
+                        {{ form_label(form.nom) }}
                     </div>
                     <div class="col-sm-7">
-                        {{ form_widget(formSortie.nom) }}
+                        {{ form_widget(form.nom) }}
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <div class="col-sm-1 col-form-label">
-                        {{ form_label(formSortie.dateHeureDebut) }}
+                        {{ form_label(form.dateHeureDebut) }}
                     </div>
                     <div class="col-sm-5">
-                        {{ form_widget(formSortie.dateHeureDebut) }}
+                        {{ form_widget(form.dateHeureDebut) }}
                     </div>
                     <div class="col-sm-1 col-form-label">
-                        {{ form_label(formSortie.dateFin) }}
+                        {{ form_label(form.dateFin) }}
                     </div>
                     <div class="col-sm-4">
-                        {{ form_widget(formSortie.dateFin) }}
+                        {{ form_widget(form.dateFin) }}
                     </div>
                 </div>
             </div>
@@ -55,35 +55,35 @@
             <div>
                 <div class="form-group form-check row">
                     <div class="form-check-label">
-                        {{ form_label(formSortie.organisateur) }}
+                        {{ form_label(form.organisateur) }}
                     </div>
                     <div classs="form-check-input">
-                        {{ form_widget(formSortie.organisateur) }}
+                        {{ form_widget(form.organisateur) }}
                     </div>
                 </div>
                 <div class="form-group form-check row">
                     <div class="form-check-label">
-                        {{ form_label(formSortie.inscrit) }}
+                        {{ form_label(form.inscrit) }}
                     </div>
                     <div classs="form-check-input">
-                        {{ form_widget(formSortie.inscrit) }}
+                        {{ form_widget(form.inscrit) }}
                     </div>
                 </div>
                 <div class="form-group form-check row">
                     <div class="form-check-label">
-                        {{ form_label(formSortie.nonInscrit) }}
+                        {{ form_label(form.nonInscrit) }}
                     </div>
                     <div classs="form-check-input">
-                        {{ form_widget(formSortie.nonInscrit) }}
+                        {{ form_widget(form.nonInscrit) }}
                     </div>
                 </div>
 
                 <div class="form-group form-check row">
                     <div class="form-check-label">
-                        {{ form_label(formSortie.sortiePassee) }}
+                        {{ form_label(form.sortiePassee) }}
                     </div>
                     <div classs="form-check-input">
-                        {{ form_widget(formSortie.sortiePassee) }}
+                        {{ form_widget(form.sortiePassee) }}
                     </div>
                 </div>
             </div>
@@ -92,6 +92,6 @@
             <button type="submit" class="btn btn-secondary btn-lg">Rechercher</button>
         </div>
 
-        {{ form_end(formSortie) }}
+        {{ form_end(form) }}
     </div>
 </div>

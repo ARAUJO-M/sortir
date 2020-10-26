@@ -59,4 +59,12 @@ class UserController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/profile/participant", name="autre_profil")
+     */
+    public function otherProfile()
+    {
+        return $this->render("user/otherProfile.html.twig", []);
+    }
+
 }
