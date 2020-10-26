@@ -1,26 +1,97 @@
+{% form_theme formSortie 'sortie/bootstrap_4_layout.html.twig' %}
 
+<div class="container-fluid">
 
-    {{ form_start(form) }}
-    <div>
-    {{ form_row(form.nom) }}
-    </div>
-    <div>
-    {{ form_row(form.campus) }}
-    </div>
-    <div>
-    {{ form_row(form.dateHeureDebut) }}
-    {{ form_row(form.dateFin) }}
-    </div>
-    <div>
-    {{ form_row(form.organisateur) }}
-    </div>
-    <div>
-    {{ form_row(form.inscrit) }}
-    </div>
-    {{ form_row(form.nonInscrit) }}
-    <div>
-    {{ form_row(form.sortiePassee) }}
+    <div class="row mb-4 mt-4">
+        <div class="col text-center">
+            <h2>Filtrer les sorties</h2>
+        </div>
     </div>
 
-    {{ form_end(form) }}
+    <div class="row mt-5 mb-5">
 
+        <div class="col-lg-5 ml-3">
+        {{ form_start(formSortie) }}
+
+
+            <div>
+                <div class="form-group row">
+                    <div class="col-sm-2 col-form-label">
+                        {{ form_label(formSortie.campus) }}
+                    </div>
+                    <div class="col-sm-8">
+                        {{ form_widget(formSortie.campus) }}
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-sm-3 col-form-label">
+                        {{ form_label(formSortie.nom) }}
+                    </div>
+                    <div class="col-sm-7">
+                        {{ form_widget(formSortie.nom) }}
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-1 col-form-label">
+                        {{ form_label(formSortie.dateHeureDebut) }}
+                    </div>
+                    <div class="col-sm-5">
+                        {{ form_widget(formSortie.dateHeureDebut) }}
+                    </div>
+                    <div class="col-sm-1 col-form-label">
+                        {{ form_label(formSortie.dateFin) }}
+                    </div>
+                    <div class="col-sm-4">
+                        {{ form_widget(formSortie.dateFin) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mt-2 ml-2">
+            <div>
+                <div class="form-group form-check row">
+                    <div class="form-check-label">
+                        {{ form_label(formSortie.organisateur) }}
+                    </div>
+                    <div classs="form-check-input">
+                        {{ form_widget(formSortie.organisateur) }}
+                    </div>
+                </div>
+                <div class="form-group form-check row">
+                    <div class="form-check-label">
+                        {{ form_label(formSortie.inscrit) }}
+                    </div>
+                    <div classs="form-check-input">
+                        {{ form_widget(formSortie.inscrit) }}
+                    </div>
+                </div>
+                <div class="form-group form-check row">
+                    <div class="form-check-label">
+                        {{ form_label(formSortie.nonInscrit) }}
+                    </div>
+                    <div classs="form-check-input">
+                        {{ form_widget(formSortie.nonInscrit) }}
+                    </div>
+                </div>
+
+                <div class="form-group form-check row">
+                    <div class="form-check-label">
+                        {{ form_label(formSortie.sortiePassee) }}
+                    </div>
+                    <div classs="form-check-input">
+                        {{ form_widget(formSortie.sortiePassee) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 mt-5">
+            <button type="submit" class="btn btn-secondary btn-lg">Rechercher</button>
+        </div>
+
+        {{ form_end(formSortie) }}
+    </div>
+</div>

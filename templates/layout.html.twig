@@ -3,18 +3,19 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %} Sortir {% endblock %}</title>
 
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('bootstrap-4.5.2/css/bootstrap.css') }}">
             <link rel="stylesheet" href="{{ asset('bootstrap-4.5.2/css/bootstrap-grid.css') }}">
             <link rel="stylesheet" href="{{ asset('bootstrap-4.5.2/css/bootstrap-reboot.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         {% endblock %}
     </head>
 
     <body>
-
-    <div class="container">
 
     <header>
         {% include('inc/nav.html.twig') %}
@@ -35,8 +36,6 @@
     <footer>
         {% include('inc/footer.html.twig') %}
     </footer>
-
-    </div><!--fin div class container-->
 
     <script src="{{ asset('bootstrap-4.5.2/js/bootstrap.js') }}"></script>
     <script src="{{ asset('bootstrap-4.5.2/js/bootstrap.bundle.js') }}"></script>

@@ -47,9 +47,6 @@ class AfficherSortiesType extends AbstractType
             ->add('nonInscrit', CheckboxType::class, ['label' => 'Sorties auxquelles je ne suis pasinscrit/e', 'required' => false])
             ->add('sortiePassee', CheckboxType::class, ['label' => 'Sorties passées', 'required' => false])
 
-            ->add('submit', SubmitType::class, [
-                'label' => 'Rechercher'
-            ])
         ;
     }
 
