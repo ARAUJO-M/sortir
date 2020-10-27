@@ -83,7 +83,7 @@
         {% if sortie.participantOrganisateur %}
             {% if sortie.participantOrganisateur.username != app.user.username %}
             <td>
-                <a href="#">{{ sortie.participantOrganisateur.username }}</a>
+                <a href="{{ path('autre_profil', {'id' : sortie.participantOrganisateur.id }) }}">{{ sortie.participantOrganisateur.username }}</a>
             </td>
             {% else %}
             <td>{{ app.user.username }}</td>
