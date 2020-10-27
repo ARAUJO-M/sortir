@@ -3,14 +3,12 @@
 namespace App\Controller;
 
 use App\Data\AfficherSortiesData;
-use App\Entity\Campus;
-use App\Entity\Etat;
-use App\Entity\Lieu;
 use App\Entity\Participant;
 use App\Entity\Sortie;
 use App\Form\AfficherSortiesType;
 use App\Form\AnnulerSortieType;
 use App\Form\CreerSortieType;
+use App\Form\DetailSortieType;
 use App\Repository\CampusRepository;
 use App\Repository\EtatRepository;
 use App\Repository\LieuRepository;
@@ -56,10 +54,12 @@ class GoOutController extends AbstractController
     /**
      * @Route("/sorties/detail/{id}", name="sorties_detail", requirements={"id": "\d+"})
      */
-    public function detailSortie ($id, SortieRepository $repository)
+    public function detailSortie ($id, SortieRepository $repository, EntityManagerInterface $em)
     {
-        $date = new \DateTime('now');
-        $sortie = $repository->findOneBy(['id'=>$id]);
+        //Récupération de la sortie pour son id
+       $sortie = $repository->findOneBy(['id'=>$id]); //selectionne l'id de la sortie
+
+        //todo: scénario si sorties passées : consultable mais plus d'inscription / date limite inscription aussi
 
         return $this->render('sortie/SortieDetail.html.twig', [
             'sortie' => $sortie
