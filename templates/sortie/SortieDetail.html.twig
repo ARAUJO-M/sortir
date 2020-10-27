@@ -206,12 +206,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for i in sortie.participants %}
+                 {# {% for i in sortie.participants %} #}
                     <tr>
-                        <td>{{ i.participant.username }}</td>
+                        <td><a href=""></a></td> {# lien pour afficher le profil des participants #}
                         <td>{{ i.participant.nom | upper}} {{  i.participant.prenom }}</td>
                     </tr>
-                    {% endfor %}
+                 {# {% endfor %} #}
+
                     </tbody>
                 </table>
 

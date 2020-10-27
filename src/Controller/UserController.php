@@ -60,11 +60,17 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/profile/participant", name="autre_profil")
+     * @Route("/profile/participant/{id}", name="autre_profil", requirements={"id": "\d+"})
      */
-    public function otherProfile()
+    public function otherProfile($id, EntityManagerInterface $em)
     {
-        return $this->render("user/otherProfile.html.twig", []);
+        //Récupération de l'utilisateur
+        $participantRepo = $em->getRepository(Participant::class);
+        $participant = $participantRepo->find($id);
+
+        return $this->render("user/otherProfile.html.twig", [
+            'participant' => $participant
+        ]);
     }
 
 }
