@@ -13,9 +13,12 @@
 </div>
 
     <div> Nom de la sortie: {{ sortie.nom }} </div>
+
     <div>Date de la sortie: {{ sortie.dateHeureDebut|date('d/m/Y à H:i') }}</div>
+
     <div>Campus: {{ sortie.campusOrganisateur.nom|upper }}</div>
-    <div>Lieu: {{ sortie.lieu.nom }}</div>
+
+    <div>Lieu: {{ sortie.lieu.nom }} {{ sortie.lieu.rue }} {{ sortie.lieu.ville.codePostal }} {{ sortie.lieu.ville.nom }} </div>
 
 
 

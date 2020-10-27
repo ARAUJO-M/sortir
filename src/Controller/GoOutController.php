@@ -3,12 +3,12 @@
 namespace App\Controller;
 
 use App\Data\AfficherSortiesData;
-use App\Entity\Participant;
+use App\Entity\Etat;
 use App\Entity\Sortie;
 use App\Form\AfficherSortiesType;
 use App\Form\AnnulerSortieType;
 use App\Form\CreerSortieType;
-use App\Form\DetailSortieType;
+use App\Form\ModifierSortieType;
 use App\Repository\CampusRepository;
 use App\Repository\EtatRepository;
 use App\Repository\LieuRepository;
@@ -131,14 +131,14 @@ class GoOutController extends AbstractController
      * @Route("/sortie/modifier/{id}", name="sortie_modifier", requirements={"id": "\d+"})
      */
     public function modifierSortie($id, EntityManagerInterface $em, Request $request,
-                                   SortieRepository $sortieRepository, EtatRepository $etatRepository)
+                                   EtatRepository $etatRepository)
     {
         // Récupération de la sortie par son id
         $sortieRepository = $em->getRepository(Sortie::class);
         $sortie = $sortieRepository->find($id);
 
         // Création du formulaire
-        $modifierSortieForm = $this->createForm(CreerSortieType::class, $sortie);
+        $modifierSortieForm = $this->createForm(ModifierSortieType::class, $sortie);
         $modifierSortieForm->handleRequest($request);
 
         if($modifierSortieForm->isSubmitted() && $modifierSortieForm->isValid()){
@@ -152,6 +152,11 @@ class GoOutController extends AbstractController
                 $etat = $etatRepository->findOneBy(['id' => '2']);
             }
 
+        //suppression d'une sortie
+   //         if (isset($_POST['supprimer'])){
+   //             $sortie = $sortieRepository->supprimerSortie($id);
+   //         }
+
             $sortie->setEtatSortie($etat);
 
             $em->persist($sortie);
@@ -164,7 +169,8 @@ class GoOutController extends AbstractController
         }
 
         return $this->render("sortie/modifierSortie.html.twig", [
-            'modifierSortieForm' => $modifierSortieForm->createView()
+            'modifierSortieForm' => $modifierSortieForm->createView(),
+            'sortie' => $sortie
         ]);
 
     }
@@ -198,4 +204,20 @@ class GoOutController extends AbstractController
             'sortie' => $sortie
         ]);
     }
+
+//    /**
+//     * @Route ("")
+//     */
+//    public function inscrire()
+//    {
+//
+//    }
+
+//    /**
+//     * @Route ("")
+//     */
+//    public function desister()
+//    {
+//
+//    }
 }

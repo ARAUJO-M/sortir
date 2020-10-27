@@ -63,14 +63,6 @@ class SortieRepository extends ServiceEntityRepository
 
         //selection de la sortie et de son campus orga + état qui doit être en sortie créée
         $qb = $this->createQueryBuilder('s');
-       // $qb->select('c', 's', 'e')
-       //     ->join('s.campusOrganisateur', 'c')
-       //     ->join('s.etatSortie', 'e')
-       //     ->andWhere('e.libelle != (:libelle)') //todo: vérifier la pertinence
-      //      ->setParameter('libelle', 'créée')
-      //      ->andWhere('s.dateHeureDebut > (:date)')
-      //      ->setParameter('date', $dateTime)
-      //      ->orderBy('s.dateHeureDebut', 'DESC');
 
         //condition si le champ campus est indiqué
         if(!empty($data->campus)){
@@ -130,5 +122,10 @@ class SortieRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
 
     }
+
+//    public function supprimerSortie()
+//    {
+//
+//    }
 
 }
