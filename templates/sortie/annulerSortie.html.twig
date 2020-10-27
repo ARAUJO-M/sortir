@@ -1,0 +1,36 @@
+{% extends "layout.html.twig" %}
+
+{% form_theme annulerSortieForm 'sortie/bootstrap_4_layout.html.twig' %}
+
+{% block title %} {{ parent() }} |  Annuler sortie {% endblock %}
+
+{% block main %}
+
+<div class="row mb-4 mt-4">
+    <div class="col text-center">
+        <h2>Annuler sortie</h2>
+    </div>
+</div>
+
+    <div> Nom de la sortie: {{ sortie.nom }} </div>
+    <div>Date de la sortie: {{ sortie.dateHeureDebut|date('d/m/Y à H:i') }}</div>
+    <div>Campus: {{ sortie.campusOrganisateur.nom|upper }}</div>
+    <div>Lieu: {{ sortie.lieu.nom }}</div>
+
+
+
+{{ form_start(annulerSortieForm) }}
+
+{{ form_row(annulerSortieForm.infosSortie) }}
+
+<div class="row text-center mt-5">
+    <div class="col">
+        <button type="submit button" class="btn btn-secondary btn-lg">Enregistrer</button>
+        <button type="reset button" class="btn btn-secondary btn-lg">Annuler</button>
+
+    </div>
+</div>
+
+{{ form_end(annulerSortieForm) }}
+
+{% endblock %}

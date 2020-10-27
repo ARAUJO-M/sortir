@@ -3,8 +3,13 @@
 namespace App\Controller;
 
 use App\Data\AfficherSortiesData;
+use App\Entity\Campus;
+use App\Entity\Etat;
+use App\Entity\Lieu;
+use App\Entity\Participant;
 use App\Entity\Sortie;
 use App\Form\AfficherSortiesType;
+use App\Form\AnnulerSortieType;
 use App\Form\CreerSortieType;
 use App\Repository\CampusRepository;
 use App\Repository\EtatRepository;
@@ -21,21 +26,9 @@ class GoOutController extends AbstractController
     /**
      * @Route("/accueil", name="sorties_accueil")
      */
-    public function accueil (EntityManagerInterface $em, Request $request) //SortieRepository $repository
+    public function accueil (EntityManagerInterface $em, Request $request)
     {
-        //$data = new AfficherSortiesData();
-       // $sortie = new Sortie();
-       // $formSortie =  $this->createForm(AfficherSortiesType::class, $data);
-       // $formSortie->handleRequest($request);
-       // $getUser = $this->getUser(); //récupère l'utilisateur en cours
-      //  $sorties = $repository->trouverSortie($data, $this->getUser()); //appelle méthode de recherche du SortieRepository
-
-       // return $this->render("sortie/listeSorties.html.twig", [
-       //         "sorties" => $sorties,
-       //         "getUser" => $getUser,
-       //         "formSortie" => $formSortie->createView()
-    //]);
-
+    // traitement de la recherche filtrée
         $sortieRepository = $em->getRepository(Sortie::class);
         $sorties = $sortieRepository->findAll();
 
@@ -47,6 +40,9 @@ class GoOutController extends AbstractController
 
         $sortiesFiltrees = $sortieRepository->trouverSortie($data, $getUser);
         $sorties = $sortiesFiltrees;
+
+    // traitement des liens "Action"
+
 
         return $this->render('sortie/listeSorties.html.twig', [
             'sorties' => $sorties,
@@ -63,11 +59,9 @@ class GoOutController extends AbstractController
     public function detailSortie ($id, SortieRepository $repository)
     {
         $date = new \DateTime('now');
-        $sortie = $repository->findOneBy(['id'=>$id]); //selectionne l'id de la sortie
+        $sortie = $repository->findOneBy(['id'=>$id]);
 
-        //todo: scénario si sorties passées : consultable mais plus d'inscription / date limite inscription aussi
-
-        return $this->render('SortieDetail.html.twig', [
+        return $this->render('sortie/SortieDetail.html.twig', [
             'sortie' => $sortie
         ]);
     }
@@ -98,16 +92,17 @@ class GoOutController extends AbstractController
 
         if($creerSortieForm->isSubmitted() && $creerSortieForm->isValid()){
 
-            //vérification contraintes/pertinence liées aux date début et clôture
+    //vérification contraintes/pertinence liées aux date début et clôture
             if($sortie->getDateHeureDebut() >= $sortie->getDateLimiteInscription() &&
                 $sortie->getDateHeureDebut() > new  \DateTime('now') &&
                  $sortie->getDateLimiteInscription() > new \DateTime('now')){
 
-                //attribution des différents états à une sortie
+    //attribution des différents états à une sortie
+        $etat = null;
                 if(isset($_POST['enregistrer'])){
-                    $etat = $etatRepository->findOneBy(['libelle' => 'créée']);
+                    $etat = $etatRepository->findOneBy(['id' => '1']);
                 } elseif (isset($_POST['publier'])){
-                    $etat = $etatRepository->findOneBy(['libelle' => 'ouverte']);
+                    $etat = $etatRepository->findOneBy(['id' => '2']);
                 }
 
                 $sortie->setCampusOrganisateur($campus);
@@ -115,23 +110,92 @@ class GoOutController extends AbstractController
                 $sortie->setEtatSortie($etat);
 
                 $em->persist($sortie);
-                $em->persist($etat);
                 $em->flush();
 
-                $this->addFlash('succes', 'Sortie ajoutée avec succès!');
+                $this->addFlash('success', 'Sortie ajoutée avec succès!');
                 return $this->redirectToRoute('sorties_accueil');
-
-                //todo: param les messages d'erreur si conditions non remplies
 
             }
         } elseif ($sortie == null){
-            $this->addFlash('erreur', 'Une erreur est survenue lors de la soumission du formulaire');
+            $this->addFlash('error', 'Une erreur est survenue lors de la soumission du formulaire');
         }
 
         return $this->render('sortie/creerSortie.html.twig', [
             'creerSortieForm' => $creerSortieForm->createView(),
             'lieux' => $lieux,
             'villes' => $villes
+        ]);
+    }
+
+    /**
+     * @Route("/sortie/modifier/{id}", name="sortie_modifier", requirements={"id": "\d+"})
+     */
+    public function modifierSortie($id, EntityManagerInterface $em, Request $request,
+                                   SortieRepository $sortieRepository, EtatRepository $etatRepository)
+    {
+        // Récupération de la sortie par son id
+        $sortieRepository = $em->getRepository(Sortie::class);
+        $sortie = $sortieRepository->find($id);
+
+        // Création du formulaire
+        $modifierSortieForm = $this->createForm(CreerSortieType::class, $sortie);
+        $modifierSortieForm->handleRequest($request);
+
+        if($modifierSortieForm->isSubmitted() && $modifierSortieForm->isValid()){
+
+        //attribution des différents états à une sortie
+            $etat = $sortie->getEtatSortie();
+
+            if(isset($_POST['enregistrer'])){
+                $etat = $etatRepository->findOneBy(['id' => '1']);
+            } elseif (isset($_POST['publier'])){
+                $etat = $etatRepository->findOneBy(['id' => '2']);
+            }
+
+            $sortie->setEtatSortie($etat);
+
+            $em->persist($sortie);
+            $em->flush();
+
+            $this->addFlash('success', 'Les modifications de la sortie ont été prises en compte');
+            return $this->redirectToRoute('sorties_accueil');
+        } elseif ($modifierSortieForm->isSubmitted() && (!$modifierSortieForm->isValid())) {
+            $this->addFlash('error', 'Une erreur s\'est produite lors de la modification de la sortie');
+        }
+
+        return $this->render("sortie/modifierSortie.html.twig", [
+            'modifierSortieForm' => $modifierSortieForm->createView()
+        ]);
+
+    }
+
+    /**
+     * @Route("/sortie/annuler/{id}", name="sortie_annuler", requirements={"id": "\d+"})
+     */
+    public function annulerSortie($id, EntityManagerInterface $em, Request $request)
+    {
+            $sortieRepository = $em->getRepository(Sortie::class);
+            $sortie = $sortieRepository->find($id);
+
+            $etatRepository = $em->getRepository(Etat::class);
+
+            $annulerSortieForm = $this->createForm(AnnulerSortieType::class, $sortie);
+            $annulerSortieForm->handleRequest($request);
+
+          if($annulerSortieForm->isSubmitted() && $annulerSortieForm->isValid()){
+            $sortie->setEtatSortie($etat = $etatRepository->find('6')); //passage de l'état en Annulée (id 6 en bdd)
+
+            $this->addFlash('success', 'L\'annulation de votre sortie a été prise en compte');
+
+            $em->persist($sortie);
+            $em->flush();
+        } elseif ($sortie == null){
+            $this->addFlash('erreur', 'Une erreur est survenue lors de la soumission du formulaire');
+        }
+
+        return $this->render('sortie/annulerSortie.html.twig', [
+            'annulerSortieForm' => $annulerSortieForm->createView(),
+            'sortie' => $sortie
         ]);
     }
 }

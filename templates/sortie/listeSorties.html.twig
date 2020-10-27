@@ -11,8 +11,7 @@
         </div>
     {% endfor %}
 
-    <h5> Bienvenue {{ app.user.username }}, <br> {{ date('now')|date('d/m/Y') }}</h5>
-    {# TODO: mettre nom user / campus / date du jour #}
+    <h6 class="text-right"> Bienvenue {{ app.user.username }}, <br> {{ date('now')|date('d/m/Y') }}</h6>
 
     {# formulaire de recherche filtrée pour les sorties #}
     {% include ('sortie/AfficherSorties.html.twig') with {form: formSortie} only %}
@@ -31,39 +30,43 @@
         <th scope="col">Action</th>
     </tr>
     </thead>
+    <tbody>
 
+    {% if sorties is defined and sorties is not empty %}
     {% for sortie in sorties %}
 
     {% set dateLimiteInscription = sortie.dateLimiteInscription|date('m/d/Y') %}
 
+    {% if sortie.etatSortie %}
     {% if sortie.etatSortie != 'Archivee' %}
 
-    <tbody>
-    <tr>
+    <tr class="text-center">
         <td>{{ sortie.nom }}</td>
         <td>{{ sortie.dateHeureDebut|date('d/m/Y à H:i') }}</td>
-        <td>{{ sortie.dateLimiteInscription|date('m/d/Y') }}</td>
+        <td>{{ sortie.dateLimiteInscription|date('d/m/Y') }}</td>
         <td>{{ sortie.participants|length }}/{{ sortie.nbInscriptionsMax }}</td>
 
-        {# état sortie // todo: à revoir car ne s'affiche pas #}
-        <td>État</td> {# todo: à supprimer une fois que le code dessous sera opérationnel #}
-        {% if sortie.etatSortie == 'Créée' %}
+        {# affiche état sortie, si non renseigné en base affiche non renseigné #}
+        {% if sortie.etatSortie.id == '1' %}
         <td>Créée</td>
-        {% elseif sortie.etatSortie == 'Ouverte' %}
-        <td>Ouverte</td>
-        {% elseif sortie.etatSortie == 'Cloturee' %}
-        <td>Cloturée</td>
-        {% elseif sortie.etatSortie == 'En cours' %}
+        {% elseif sortie.etatSortie.id == '2' %}
+        <td class="text-success">Ouverte</td>
+        {% elseif sortie.etatSortie.id == '3' %}
+        <td class="text-warning">Cloturée</td>
+        {% elseif sortie.etatSortie.id == 'En 4' %}
         <td>En cours</td>
-        {% elseif sortie.etatSortie == 'Passee' %}
-        <td>Passée</td>
-        {% elseif sortie.etatSortie == 'Annulee' %}
-        <td>Annulée</td>
+        {% elseif sortie.etatSortie.id == '5' %}
+        <td class="text-danger">Passée</td>
+        {% elseif sortie.etatSortie.id == '6' %}
+        <td class="text-danger">Annulée</td>
+        {% else %}
+        <td>Non renseigné - erreur</td>
         {% endif %}
+
 
         {# si user inscrit #}
         {% set inscrit = false %}
-        {% for inscription in app.user.inscriptionsSorties%}
+        {% for inscription in app.user.inscriptionsSorties %}
             {% for inscriptions in sortie.participants %}
                 {% if inscription == inscriptions %}
                     {% set inscrit = true %}
@@ -71,28 +74,54 @@
             {% endfor %}
         {% endfor%}
         {% if inscrit %}
-            <td>Oui</td>
+            <td class="text-success">Oui</td>
         {% else %}
-            <td>Non</td>
+            <td class="text-warning">Non</td>
         {% endif %}
 
         {# lien vers affichage profil du participant organisateur #}
+        {% if sortie.participantOrganisateur %}
+            {% if sortie.participantOrganisateur.username != app.user.username %}
             <td>
-                <a href="#">{# afficher le participant organisateur #}</a>
+                <a href="#">{{ sortie.participantOrganisateur.username }}</a>
             </td>
+            {% else %}
+            <td>{{ app.user.username }}</td>
+            {% endif%}
+        {% else %}
+            <td>Non renseigné</td>
+        {% endif%}
 
         {# lien vers affichage détail sortie #}
+        {# todo: à finir #}
         <td>
-            <a href="#">Afficher</a>
+            {% if sortie.participantOrganisateur %}
+            {% if sortie.participantOrganisateur.username == app.user.username %}
+            <a href="{{ path('sortie_modifier', {'id': sortie.id}) }}">Modifier</a>
+            {% elseif sortie.participantOrganisateur.username or sortie.participantOrganisateur is empty %}
+            <a href="{{ path('sorties_detail', {'id': sortie.id}) }}">Afficher</a>
+            {% endif %}
+            {% endif %}
+            -
+            {% if inscrit == false %}
+            <a name="inscrire" href="">S'inscrire</a>
+            {% else %}
+            <a name="desister" href="">Se désister</a>
+            {% endif %}
         </td>
     </tr>
-    </tbody>
-    </table>
+
+    {% endif %}
     {% endif %}
     {% endfor %}
 
-
-
+    {%  else %}
+    <tr>
+        <th>Aucune sortie trouvée</th>
+    </tr>
+    {% endif %}
+    </tbody>
+    </table>
 
     <div>
 

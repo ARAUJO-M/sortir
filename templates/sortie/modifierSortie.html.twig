@@ -1,82 +1,82 @@
 {% extends 'layout.html.twig' %}
 
-{% form_theme creerSortieForm 'sortie/bootstrap_4_layout.html.twig' %}
+{% form_theme modifierSortieForm 'sortie/bootstrap_4_layout.html.twig' %}
 
-{% block title %} {{ parent() }} | Créer une sortie {% endblock %}
+{% block title %} {{ parent() }} | Modifier une sortie {% endblock %}
 
 {% block main %}
     <div class="container">
 
         <div class="row mb-4 mt-4">
             <div class="col text-center">
-                <h2>Créer une sortie</h2>
+                <h2>Modifier une sortie</h2>
             </div>
         </div>
 
         <div class="row">
 
             <div class="col-lg-5">
-                {{ form_start(creerSortieForm) }}
+                {{ form_start(modifierSortieForm) }}
 
                 <div>
                     <div class="form-group row">
                         <div class="col-sm-5 col-form-label">
-                            {{ form_label(creerSortieForm.nom) }}
+                            {{ form_label(modifierSortieForm.nom) }}
                         </div>
                         <div class="col-sm-7">
-                            {{ form_widget(creerSortieForm.nom) }}
+                            {{ form_widget(modifierSortieForm.nom) }}
                         </div>
-                        {{ form_errors(creerSortieForm.nom) }}
+                        {{ form_errors(modifierSortieForm.nom) }}
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-5 col-form-label">
-                            {{ form_label(creerSortieForm.dateHeureDebut) }}
+                            {{ form_label(modifierSortieForm.dateHeureDebut) }}
                         </div>
                         <div class="col-sm-7">
-                            {{ form_widget(creerSortieForm.dateHeureDebut) }}
+                            {{ form_widget(modifierSortieForm.dateHeureDebut) }}
                         </div>
-                        {{ form_errors(creerSortieForm.dateHeureDebut) }}
+                        {{ form_errors(modifierSortieForm.dateHeureDebut) }}
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-5 col-form-label">
-                            {{ form_label(creerSortieForm.dateLimiteInscription) }}
+                            {{ form_label(modifierSortieForm.dateLimiteInscription) }}
                         </div>
                         <div class="col-sm-7">
-                            {{ form_widget(creerSortieForm.dateLimiteInscription) }}
+                            {{ form_widget(modifierSortieForm.dateLimiteInscription) }}
                         </div>
-                        {{ form_errors(creerSortieForm.dateLimiteInscription) }}
+                        {{ form_errors(modifierSortieForm.dateLimiteInscription) }}
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-5 col-form-label">
-                            {{ form_label(creerSortieForm.nbInscriptionsMax) }}
+                            {{ form_label(modifierSortieForm.nbInscriptionsMax) }}
                         </div>
                         <div class="col-sm-7">
-                            {{ form_widget(creerSortieForm.nbInscriptionsMax) }}
+                            {{ form_widget(modifierSortieForm.nbInscriptionsMax) }}
                         </div>
-                        {{ form_errors(creerSortieForm.nbInscriptionsMax) }}
+                        {{ form_errors(modifierSortieForm.nbInscriptionsMax) }}
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-5 col-form-label">
-                            {{ form_label(creerSortieForm.duree) }}
+                            {{ form_label(modifierSortieForm.duree) }}
                         </div>
                         <div class="col-sm-7">
-                            {{ form_widget(creerSortieForm.duree) }}
+                            {{ form_widget(modifierSortieForm.duree) }}
                         </div>
-                        {{ form_errors(creerSortieForm.duree) }}
+                        {{ form_errors(modifierSortieForm.duree) }}
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-5 col-form-label">
-                            {{ form_label(creerSortieForm.infosSortie) }}
+                            {{ form_label(modifierSortieForm.infosSortie) }}
                         </div>
                         <div class="col-sm-7">
-                            {{ form_widget(creerSortieForm.infosSortie) }}
+                            {{ form_widget(modifierSortieForm.infosSortie) }}
                         </div>
-                        {{ form_errors(creerSortieForm.infosSortie) }}
+                        {{ form_errors(modifierSortieForm.infosSortie) }}
                     </div>
 
                 </div>
@@ -86,68 +86,59 @@
             </div>
             <div class="col-lg-5">
                 <div>
-
-                    <div>Campus: {{ app.user.campus.nom }}</div>
-                    <br>
-
                     <div class="form-group row">
                         <div class="col-sm-4 col-form-label">
-                            {{ form_label(creerSortieForm.ville) }}
+                            {{ form_label(modifierSortieForm.ville) }}
                         </div>
                         <div class="col-sm-8">
-                            {{ form_widget(creerSortieForm.ville) }}
+                            {{ form_widget(modifierSortieForm.ville) }}
                         </div>
-                        {{ form_errors(creerSortieForm.ville) }}
+                        {{ form_errors(modifierSortieForm.ville) }}
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-4 col-form-label">
-                            {{ form_label(creerSortieForm.lieu) }}
+                            {{ form_label(modifierSortieForm.lieu) }}
                         </div>
                         <div class="col-sm-8">
-                            {{ form_widget(creerSortieForm.lieu) }}
+                            {{ form_widget(modifierSortieForm.lieu) }}
                         </div>
-                        {{ form_errors(creerSortieForm.lieu) }}
-                    </div>
-
-                    <div>Rue: {# todo: ajouter code pour afficher la rue associée #}</div>
-                    <br>
-
-                    <div>Code postal: {# todo: ajouter code pour afficher le cp associé #}</div>
-                    <br>
-
-                    <div class="form-group row">
-                        <div class="col-sm-4 col-form-label">
-                            {{ form_label(creerSortieForm.latitude) }}
-                        </div>
-                        <div class="col-sm-8">
-                            {{ form_widget(creerSortieForm.latitude) }}
-                        </div>
-                        {{ form_errors(creerSortieForm.latitude) }}
+                        {{ form_errors(modifierSortieForm.lieu) }}
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-4 col-form-label">
-                            {{ form_label(creerSortieForm.longitude) }}
+                            {{ form_label(modifierSortieForm.latitude) }}
                         </div>
                         <div class="col-sm-8">
-                            {{ form_widget(creerSortieForm.longitude) }}
+                            {{ form_widget(modifierSortieForm.latitude) }}
                         </div>
-                        {{ form_errors(creerSortieForm.longitude) }}
+                        {{ form_errors(modifierSortieForm.latitude) }}
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-form-label">
+                            {{ form_label(modifierSortieForm.longitude) }}
+                        </div>
+                        <div class="col-sm-8">
+                            {{ form_widget(modifierSortieForm.longitude) }}
+                        </div>
+                        {{ form_errors(modifierSortieForm.longitude) }}
                     </div>
                 </div>
             </div>
         </div>
         <div class="row text-center mt-5">
             <div class="col">
-                <button name="enregistrer" type="submit button" class="btn btn-secondary btn-lg">Enregistrer</button>
+                <button name="enregistrer" type="submit" class="btn btn-secondary btn-lg">Enregistrer</button>
                 <button name="publier" type="submit" class="btn btn-secondary btn-lg">Publier la sortie</button>
+                <button name="supprimer" type="submit" class="btn btn-secondary btn-lg">Supprimer</button>
                 <button type="reset" class="btn btn-secondary btn-lg">Annuler</button>
 
             </div>
         </div>
 
-        {{ form_end(creerSortieForm) }}
+        {{ form_end(modifierSortieForm) }}
 
     </div>
 {% endblock %}
