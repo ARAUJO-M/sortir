@@ -63,20 +63,12 @@ class SortieRepository extends ServiceEntityRepository
 
         //selection de la sortie et de son campus orga + état qui doit être en sortie créée
         $qb = $this->createQueryBuilder('s');
-       // $qb->select('c', 's', 'e')
-       //     ->join('s.campusOrganisateur', 'c')
-       //     ->join('s.etatSortie', 'e')
-       //     ->andWhere('e.libelle != (:libelle)') //todo: vérifier la pertinence
-      //      ->setParameter('libelle', 'créée')
-      //      ->andWhere('s.dateHeureDebut > (:date)')
-      //      ->setParameter('date', $dateTime)
-      //      ->orderBy('s.dateHeureDebut', 'DESC');
 
         //condition si le champ campus est indiqué
         if(!empty($data->campus)){
             $qb = $qb->addSelect('c')
                      ->join('s.campusOrganisateur', 'c')
-                     ->andWhere('c.nom = (:campus)') //'c.id = (:campus)'
+                     ->andWhere('c.id = (:campus)')
                      ->setParameter('campus', $data->campus);
 
         }
@@ -97,23 +89,23 @@ class SortieRepository extends ServiceEntityRepository
             if($data->inscrit == true){
                 $qb = $qb->addSelect('i') //alias inscrit
                          ->join('s.participants', 'i')
-                         ->andWhere('i.username = (:participant)') //'i.id = (:participant)'
-                         ->setParameter('participant', $getUser); //'participant', $getUser
+                         ->andWhere('i.id = (:participant)')
+                         ->setParameter('participant', $getUser);
             }
 
             if($data->nonInscrit == true){
                $qb = $qb->addSelect('ni') //alias non inscrit
-                        ->leftJoin('s.participants', 'ni') //join
-                        ->andWhere('ni.username is null OR ni.username != (:participant)') //'ni.id is null OR ni.id != (:participant)'
-                        ->setParameter('participant', $getUser); //'participant', $getUser
+                        ->leftJoin('s.participants', 'ni')
+                        ->andWhere('ni.id is null OR ni.id != (:participant)')
+                        ->setParameter('participant', $getUser);
             }
         }
 
         if($data->sortiePassee == true){
             $qb = $qb->addSelect('e')
                      ->leftJoin('s.etatSortie', 'e')
-                     ->andWhere('e.libelle = (:etat)') //'e.libelle = (:libelle)'
-                     ->setParameter('etat', 'clôturée'); //'libelle', 'cloturée'
+                     ->andWhere('e.id = (:etat)')
+                     ->setParameter('etat', '5'); //paramètre à 5 id qui équivaut à "passée"
         }
 
         if($data->dateHeureDebut !== null){
@@ -122,15 +114,18 @@ class SortieRepository extends ServiceEntityRepository
         }
 
         if($data->dateFin !== null){
-            $qb = $qb->andWhere('s.dateHeureDebut < = (:dateFin)') //'s.dateFin >= (:dateFin)'
+            $qb = $qb->andWhere('s.dateHeureDebut < = (:dateFin)')
                      ->setParameter('dateFin', $data->dateFin);
         }
 
-     //   $query = $qb->getQuery();
-     //   $result = $query->getResult();
-     //   return $result;
+     //
         return $qb->getQuery()->getResult();
 
     }
+
+//    public function supprimerSortie()
+//    {
+//
+//    }
 
 }
