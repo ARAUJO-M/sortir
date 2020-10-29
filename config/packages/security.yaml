@@ -43,4 +43,6 @@ security:
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/accueil, roles: ROLE_USER }
         - { path: ^/, roles: ROLE_USER }
+        - { path: ^/villes, roles: ROLE_ADMIN }
+        - { path: ^/campus, roles: ROLE_ADMIN }
 

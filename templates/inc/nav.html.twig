@@ -8,8 +8,10 @@
     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
         <div class="navbar-collapse collapse">
     <ul class="navbar-nav ml-auto">
+        {% if is_granted('ROLE_ADMIN') %}
         <li class="nav-item"><a class="nav-link" href="#" title="Sortir | Ville">Ville</a></li>
         <li class="nav-item"><a class="nav-link" href="#" title="Sortir | Campus">Campus</a></li>
+        {% endif %}
         <li class="nav-item"><a class="nav-link" href="{{ path('sorties_accueil') }}" title="Sortir | Accueil">Accueil</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ path('user_profile') }}" title="Sortir | Mon profil">Mon profil</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}" title="Sortir | Se déconnecter">Se déconnecter</a></li>

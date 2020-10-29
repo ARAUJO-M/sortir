@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\SortieRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\User;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
@@ -224,6 +226,21 @@ class Sortie
         $this->participants = $participants;
     }
 
+    //méthode remplaçant le setParticipant pour ajouter un participant à la collection de participants de la sortie
+    public function ajouterParticipant($participant)
+    {
+        if(!$this->participants->contains($participant)){
+            $this->participants[] = $participant;
+        }
+    }
+
+    //méthode remplaçant le setParticipant pour retirer un participant de la collection de participants de la sortie
+    public function retirerParticipant($participant)
+    {
+        if($this->participants->contains($participant)){
+            $this->participants->removeElement($participant);
+        }
+    }
     /**
      * @return mixed
      */
@@ -286,6 +303,11 @@ class Sortie
     public function setEtatSortie($etatSortie): void
     {
         $this->etatSortie = $etatSortie;
+    }
+
+    public function __construct()
+    {
+        $this->participants = new ArrayCollection();
     }
 
 }
