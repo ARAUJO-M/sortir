@@ -39,6 +39,8 @@ class GoOutController extends AbstractController
 
         $sortiesFiltrees = $sortieRepository->trouverSortie($data, $getUser);
 
+    // gestion de l'archivage automatique
+
 
     // gestion des états
         foreach ($sorties as $sortie){
@@ -49,9 +51,10 @@ class GoOutController extends AbstractController
             $participants = $sortie->getParticipants();
             $inscriptionsMax = $sortie->getNbInscriptionsMax();
 
+
             if($sortie->getEtatSortie() != '1'){
 
-            //clôturer
+            //clôturée
             if($sortie->getEtatSortie() == '2' and ($dateLimiteSortie < $dateJour or count($participants) == $inscriptionsMax)){
                  $etat = $etatRepository->findOneBy(['id' => '3']);
                  $sortie->setEtatSortie($etat);
@@ -69,6 +72,7 @@ class GoOutController extends AbstractController
                 $sortie->setEtatSortie($etat);
                 $em->persist($sortie);
             }
+
             }
             $em->flush();
             $sorties = $sortiesFiltrees;
@@ -80,7 +84,6 @@ class GoOutController extends AbstractController
             'sortiesFiltrees' => $sortiesFiltrees,
             'formSortie' => $formSortie->createView()
         ]);
-
 
     }
 
@@ -172,8 +175,9 @@ class GoOutController extends AbstractController
         // Création du formulaire
         $modifierSortieForm = $this->createForm(ModifierSortieType::class, $sortie);
         $modifierSortieForm->handleRequest($request);
+        $etat = $etatRepository->findOneBy(['id' => '1']);
 
-        if($sortie->getEtatSortie() == '1') {
+        if($sortie->getEtatSortie() == $etat) {
             if ($modifierSortieForm->isSubmitted() && $modifierSortieForm->isValid()) {
 
                 // si enregistrer ou publier

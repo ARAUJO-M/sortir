@@ -118,10 +118,17 @@ class SortieRepository extends ServiceEntityRepository
                      ->setParameter('dateFin', $data->dateFin);
         }
 
-     //
         return $qb->getQuery()->getResult();
 
     }
 
+    public function archiver(\DateTime $limiteMois): array
+    {
+        $qb = $this->createQueryBuilder('s');
+        $qb
+            ->andWhere('s.dateHeureDebut < (:limiteMois)')
+            ->set('limiteMois', $limiteMois);
+        return $qb->getQuery()->getArrayResult();
+    }
 
 }
