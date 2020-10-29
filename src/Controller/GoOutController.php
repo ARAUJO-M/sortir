@@ -39,8 +39,6 @@ class GoOutController extends AbstractController
 
         $sortiesFiltrees = $sortieRepository->trouverSortie($data, $getUser);
 
-    // gestion de l'archivage automatique
-
 
     // gestion des états
         foreach ($sorties as $sortie){
@@ -54,8 +52,17 @@ class GoOutController extends AbstractController
 
             if($sortie->getEtatSortie() != '1'){
 
+            // archivage automatique sorties de + 1 mois
+            $moisLimite = new \DateTime('now');
+            $moisLimite->modify('-1 month');
+
+            if($sortie->getDateHeureDebut() < $moisLimite) {
+                $etat = $etatRepository->findOneBy(['id' => '7']);
+                $sortie->setEtatSortie($etat);
+                $em->persist($sortie);
+            }
             //clôturée
-            if($sortie->getEtatSortie() == '2' and ($dateLimiteSortie < $dateJour or count($participants) == $inscriptionsMax)){
+            elseif($sortie->getEtatSortie() == '2' and ($dateLimiteSortie < $dateJour or count($participants) == $inscriptionsMax)){
                  $etat = $etatRepository->findOneBy(['id' => '3']);
                  $sortie->setEtatSortie($etat);
                  $em->persist($sortie);

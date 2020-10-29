@@ -33,7 +33,8 @@
     {% for sortie in sorties %}
 
     {% if sortie.etatSortie %}
-    {% if sortie.etatSortie != 'Archivee' %}
+    {% if sortie.etatSortie.id != '7' %}
+
 
     <tr class="text-center">
         <td>{{ sortie.nom|capitalize }}</td>
