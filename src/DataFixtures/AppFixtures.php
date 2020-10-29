@@ -23,20 +23,19 @@ class AppFixtures extends Fixture
     {
         //Création d'un participant dans le BDD
 
-        /*$participant = new Participant();
-        $participant->setNom('nom');
-        $participant->setPrenom('prenom');
+        $participant = new Participant();
+        $participant->setNom('gennaro');
+        $participant->setPrenom('lucas');
         $participant->setTelephone('0626020202');
-        $participant->setMail('nom.prenom@gmail.com');
-        $participant->setUsername('pseudo');
+        $participant->setMail('gen.lu@gmail.com');
+        $participant->setUsername('lucas');
         $password = $this->encoder->encodePassword($participant, 'motdepasse');
         $participant->setPassword($password);
         $participant->setActif('1');
         $participant->setAdministrateur('1');
-        $participant->setRoles(['ROLE_USER']);
 
         $manager->persist($participant);
-        $manager->flush();*/
+        $manager->flush();
 
     }
 }

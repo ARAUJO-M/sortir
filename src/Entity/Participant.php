@@ -4,6 +4,7 @@ namespace App\Entity;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -85,6 +86,11 @@ class Participant implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Sortie", mappedBy="participantOrganisateur", cascade={"remove"})
      */
     private $sorties;
+
+    public function __toString()
+    {
+        return (string) $this->getId();
+    }
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Sortie", mappedBy="participants")
@@ -250,7 +256,7 @@ class Participant implements UserInterface
     /**
      * @return mixed
      */
-    public function getInscriptionsSorties()
+    public function getInscriptionsSorties() : Collection
     {
         return $this->inscriptionsSorties;
     }

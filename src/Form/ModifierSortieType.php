@@ -24,40 +24,40 @@ class ModifierSortieType extends AbstractType
     {
         $builder
             ->add('nom', TextType::class, [
-                'label' => 'Nom de la sortie: ',
+                'label' => 'Nom de la sortie ',
                 'required' => false
             ])
 
             ->add('dateHeureDebut', DateTimeType::class, [
-                'label' => 'Date et heure de la sortie: ',
+                'label' => 'Date et heure de la sortie ',
                 'date_widget' => 'single_text',
                 'required' => false
             ])
 
             ->add('duree', IntegerType::class, [
-                'label' => 'Durée (minutes): ',
+                'label' => 'Durée ',
                 'required' => false
             ])
 
             ->add('dateLimiteInscription', DateType::class, [
-                'label' => 'Date limite d\'inscription: ',
+                'label' => 'Date limite d\'inscription ',
                 'widget' => 'single_text',
                 'required' => false
             ])
 
             ->add('nbInscriptionsMax', NumberType::class, [
-                'label' => 'Nombre de places: ',
+                'label' => 'Nombre de places',
                 'required' => false
             ])
 
             ->add('infosSortie', TextareaType::class, [
-                'label' => 'Description et infos: ',
+                'label' => 'Description et infos',
                 'required' => false
             ])
 
             ->add('campusOrganisateur', EntityType::class, [
                 'class' => Campus::class,
-                'label' => 'Campus: ',
+                'label' => 'Campus',
                 'choice_label' => 'nom',
                 'mapped' => true,
                 'required' => false
@@ -65,21 +65,21 @@ class ModifierSortieType extends AbstractType
 
             ->add('lieu',EntityType::class, [
                 'class' => Lieu::class,
-                'label' => 'Lieu: ',
+                'label' => 'Lieu ',
                 'choice_label' => 'nom',
                 'required' => false,
                 'mapped' => Ville::class
             ])
 
             ->add('latitude', NumberType::class, [
-                'label' => 'Latitude: ',
+                'label' => 'Latitude ',
                 'input' => 'string',
                 'required' => false,
                 'mapped' => false
             ])
 
             ->add('longitude', NumberType::class, [
-                'label' => 'Longitude: ',
+                'label' => 'Longitude ',
                 'input' => 'string',
                 'required' => false,
                 'mapped' => false

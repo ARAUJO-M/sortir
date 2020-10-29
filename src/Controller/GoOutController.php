@@ -244,10 +244,13 @@ class GoOutController extends AbstractController
               if ($annulerSortieForm->isSubmitted() && $annulerSortieForm->isValid()) {
                   $sortie->setEtatSortie($etat = $etatRepository->find('6')); //passage de l'état en Annulée (id 6 en bdd)
 
-                  $this->addFlash('success', 'L\'annulation de votre sortie a été prise en compte');
+
 
                   $em->persist($sortie);
                   $em->flush();
+
+                  $this->addFlash('success', 'L\'annulation de votre sortie a été prise en compte');
+                  return $this->redirectToRoute('sorties_accueil');
               } elseif ($sortie == null) {
                   $this->addFlash('erreur', 'Une erreur est survenue lors de la soumission du formulaire');
               }

@@ -16,7 +16,7 @@ class AnnulerSortieType extends AbstractType
         $builder
 
             ->add('infosSortie', TextareaType::class, [
-                'label' => 'Motif: ',
+                'label' => 'Motif de l\'annulation ',
                 'required' => true,
                 'attr' => [
                     'placeholder' => 'entrer le motif d\'annulation',
