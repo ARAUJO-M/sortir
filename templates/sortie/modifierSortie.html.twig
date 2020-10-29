@@ -15,7 +15,7 @@
 
         <div class="row">
 
-            <div class="col-lg-5">
+            <div class="col-lg-6">
                 {{ form_start(modifierSortieForm) }}
 
                 <div>
@@ -63,9 +63,10 @@
                         <div class="col-sm-5 col-form-label">
                             {{ form_label(modifierSortieForm.duree) }}
                         </div>
-                        <div class="col-sm-7">
+                        <div class="col-sm-5">
                             {{ form_widget(modifierSortieForm.duree) }}
                         </div>
+                        <div class="col-sm-2 mt-1">minutes</div>
                         {{ form_errors(modifierSortieForm.duree) }}
                     </div>
 
@@ -81,7 +82,7 @@
 
                 </div>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-1">
 
             </div>
             <div class="col-lg-5">
@@ -105,15 +106,37 @@
                         {{ form_errors(modifierSortieForm.lieu) }}
                     </div>
                     {% if sortie.lieu is not null and sortie.lieu.rue is not null %}
-                    <div>Rue: {{ sortie.lieu.rue }}</div>
-                    <br>
+                        <div class="form-group row">
+                            <div class="col-sm-4 col-form-label">
+                                Rue
+                            </div>
+                            <div class="col-sm-8">
+                                {{ sortie.lieu.rue }}
+                            </div>
+                        </div>
                     {% endif %}
+
                     {% if sortie.lieu is not null and sortie.lieu.ville is not null %}
-                    <div>Code postal: {{ sortie.lieu.ville.codepostal }}</div>
-                        {% else %}
-                            <div>Code postal: non défini</div>
+                        <div class="form-group row">
+                            <div class="col-sm-4 col-form-label">
+                                Code Postal
+                            </div>
+                            <div class="col-sm-8">
+                                {{ sortie.lieu.ville.codepostal }}
+                            </div>
+                        </div>
+
+                    {% else %}
+                        <div class="form-group row">
+                            <div class="col-sm-4 col-form-label">
+                                Code Postal
+                            </div>
+                            <div class="col-sm-8">
+                                Non défini
+                            </div>
+                        </div>
                     {% endif %}
-                    <br>
+
                     <div class="form-group row">
                         <div class="col-sm-4 col-form-label">
                             {{ form_label(modifierSortieForm.latitude) }}

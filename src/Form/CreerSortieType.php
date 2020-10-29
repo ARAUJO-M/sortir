@@ -46,7 +46,7 @@ class CreerSortieType extends AbstractType
             ])
 
             ->add('duree', IntegerType::class, [
-                'label' => 'Durée (minutes)',
+                'label' => 'Durée',
                 'required' => false,
                 'attr' => ['min' => 0]
             ])

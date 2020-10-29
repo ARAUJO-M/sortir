@@ -1,6 +1,6 @@
 {% form_theme form 'sortie/bootstrap_4_layout.html.twig' %}
 
-<div class="container-fluid">
+
 
     <div class="row mb-4 mt-4">
         <div class="col text-center">
@@ -10,7 +10,9 @@
 
     <div class="row mt-5 mb-5">
 
-        <div class="col-lg-5 ml-3">
+        <div class="col-lg-1"></div>
+
+        <div class="col-lg-5">
         {{ form_start(form) }}
 
 
@@ -38,13 +40,13 @@
                     <div class="col-sm-1 col-form-label">
                         {{ form_label(form.dateHeureDebut) }}
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         {{ form_widget(form.dateHeureDebut) }}
                     </div>
                     <div class="col-sm-1 col-form-label">
                         {{ form_label(form.dateFin) }}
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         {{ form_widget(form.dateFin) }}
                     </div>
                 </div>
@@ -88,10 +90,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-2 mt-5">
+        <div class="col-lg-1 mt-5">
             <button type="submit" class="btn btn-secondary btn-lg">Rechercher</button>
         </div>
 
         {{ form_end(form) }}
     </div>
-</div>
