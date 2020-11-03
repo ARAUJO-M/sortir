@@ -62,21 +62,25 @@ class Sortie
     private $participants;
 
     /**
+     * @ORM\JoinColumn(nullable = false)
      * @ORM\ManyToOne(targetEntity="App\Entity\Participant", inversedBy="sorties",cascade={"persist"})
      */
     private $participantOrganisateur;
 
     /**
+     * @ORM\JoinColumn(nullable = false)
      * @ORM\ManyToOne(targetEntity="App\Entity\Campus", inversedBy="sorties",cascade={"persist"})
      */
     private $campusOrganisateur;
 
     /**
+     * @ORM\JoinColumn(nullable = false)
      * @ORM\ManyToOne(targetEntity="App\Entity\Lieu", inversedBy="sorties", cascade={"persist"})
      */
     private $lieu;
 
     /**
+     * @ORM\JoinColumn(nullable = false)
      * @ORM\ManyToOne(targetEntity="App\Entity\Etat", inversedBy="sorties", cascade={"persist"})
      */
     private $etatSortie;

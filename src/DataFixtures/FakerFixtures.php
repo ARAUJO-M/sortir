@@ -31,7 +31,6 @@ class FakerFixtures extends Fixture
         $this->encoder = $encoder;
     }
 
-    // Création des utilisateurs + des sorties
 
     public function load(ObjectManager $manager)
     {
@@ -50,73 +49,86 @@ class FakerFixtures extends Fixture
             $manager->flush();
         }
 
+        $random = rand(0, count($campus)-1);
+
+        //Création d'un utilisateur type avec données connues
+        $dupont = new Participant();
+        $dupont->setNom("Dupont");
+        $dupont->setPrenom("Jean");
+        $dupont->setUsername("jd59");
+        $password = $this->encoder->encodePassword($dupont, "password");
+        $dupont->setPassword($password);
+        $dupont->setMail("jd@gmail.com");
+        $dupont->setTelephone($faker->e164PhoneNumber);
+        $dupont->setRoles(["ROLE_ADMIN"]);
+        $dupont->setAdministrateur(false);
+        $dupont->setActif(true);
+        $dupont->setCampus($campus[0]);
+        $manager->persist($dupont);
+        $manager->flush();
 
 
         //Création des utilisateurs
-       $user = [];
         for($i=0; $i<15; $i++)
         {
-            $user[$i] = new Participant();
-            $user[$i]->setNom($faker->firstName);
-            $user[$i]->setPrenom($faker->lastName);
-            $user[$i]->setTelephone($faker->e164PhoneNumber);
-            $user[$i]->setUsername($faker->userName);
-            $user[$i]->setMail($faker->email);
-            $password = $this->encoder->encodePassword($user[$i], "password");
-            $user[$i]->setPassword($password);
-            $user[$i]->setAdministrateur(false);
-            $user[$i]->setActif(true);
+            $user = new Participant();
+            $user->setNom($faker->firstName);
+            $user->setPrenom($faker->lastName);
+            $user->setTelephone($faker->e164PhoneNumber);
+            $user->setUsername($faker->userName);
+            $user->setMail($faker->email);
+            $password = $this->encoder->encodePassword($user, "password");
+            $user->setPassword($password);
+            $user->setRoles(["ROLE_USER"]);
+            $user->setAdministrateur(false);
+            $user->setActif(true);
+            $user->setCampus($campus[$random]);
 
-            $manager->persist($user[$i]);
+            $manager->persist($user);
             $manager->flush();
         }
 
-        //Création des différents états des sorties
 
-        $etat_name = ["Créée", "Ouverte", "Cloturée", "En cours", "Passées", "Annulée"];
+        //Création des différents états des sorties
+        $etat_name = ["Créée", "Ouverte", "Cloturée", "En cours", "Passée", "Annulée", "Archivée"];
         $etatSortie = [];
         foreach($etat_name as $value){
             $etat = new Etat();
             $etat->setLibelle($value);
             array_push($etatSortie, $etat);
             $manager->persist($etat);
-            $manager->flush();
+
         }
 
-
-        //Création des villes
-        $ville = [];
-        for($i=0; $i<5; $i++)
-        {
-            $ville[$i] = new Ville();
-            $ville[$i]->setNom($faker->city);
-            $ville[$i]->setCodePostal($faker->postcode);
-            $manager->persist($ville[$i]);
-            $manager->flush();
-        }
-
-        //Création de lieu
-       $lieu = [];
-        for($i=0; $i<10; $i++)
-        {
-            $lieu[$i] = new Lieu();
-            $lieu[$i]->setNom($faker->name);
-            $lieu[$i]->setRue($faker->streetName);
-            $manager->persist($lieu[$i]);
-            $manager->flush();
-        }
 
         //Création de sorties
-        $sortie = [];
         for($i=0; $i<15; $i++)
         {
-            $sortie[$i] = new Sortie();
-            $sortie[$i]->setNom($faker->word);
-            $sortie[$i]->setDateHeureDebut($faker->dateTimeBetween($startDate = '-60 days', '+30 days'));
-            $sortie[$i]->setDateLimiteInscription($faker->dateTimeBetween($startDate, '+14 days'));
-            $sortie[$i]->setNbInscriptionsMax($faker->numberBetween(5, 20));
-            $sortie[$i]->setInfosSortie($faker->text(250));
-            $manager->persist($sortie[$i]);
+            $sortie = new Sortie();
+            $sortie->setParticipantOrganisateur($user);
+            $sortie->setCampusOrganisateur($campus[$random]);
+            $sortie->setEtatSortie($etatSortie[1]);
+            $sortie->setNom($faker->word);
+            $sortie->setDateHeureDebut($faker->dateTimeBetween($min = '-30 days', $max = '+30 days', $timeZone = null));
+            $sortie->setDateLimiteInscription(date_add($sortie->getDateHeureDebut(), date_interval_create_from_date_string('-2 days')));
+            $sortie->setNbInscriptionsMax($faker->numberBetween(1, 20));
+            $sortie->setInfosSortie($faker->text(250));
+
+            // lieu
+            $lieu = new Lieu();
+            $lieu->setNom($faker->name);
+            $lieu->setRue($faker->streetName);
+            // ville
+            $ville = new Ville();
+            $ville->setNom($faker->city);
+            $ville->setCodePostal($faker->postcode);
+            $manager->persist($ville);
+            $lieu->setVille($ville);
+            $manager->persist($lieu);
+            // attribution d'un lieu à la sortie
+            $sortie->setLieu($lieu);
+
+            $manager->persist($sortie);
             $manager->flush();
         }
     }

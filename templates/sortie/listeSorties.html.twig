@@ -34,7 +34,7 @@
     {% for sortie in sorties %}
 
     {% if sortie.etatSortie %}
-    {% if sortie.etatSortie.id != '7' %}
+    {% if sortie.etatSortie.libelle != 'Archivée' %}
 
 
     <tr class="text-center">
@@ -44,23 +44,23 @@
 
     {# affichage nb inscrit sortie / limite #}
     {% if sortie.participants|length == sortie.nbInscriptionsMax %}
-        <td><span class="text-danger">{{ sortie.participants|length }}</span> / {{ sortie.nbInscriptionsMax }}</td>
+        <td><span class="text-danger">{{ sortie.participants.count }}</span> / {{ sortie.nbInscriptionsMax }}</td>
     {% else %}
-        <td><span class="text-success">{{ sortie.participants|length }}</span> / {{ sortie.nbInscriptionsMax }}</td>
+        <td><span class="text-success">{{ sortie.participants.count  }}</span> / {{ sortie.nbInscriptionsMax }}</td>
     {% endif %}
 
         {# affichage état sortie #}
-        {% if sortie.etatSortie.id == '1' %}
+        {% if sortie.etatSortie.libelle == 'Créée' %}
         <td>Créée</td>
-        {% elseif sortie.etatSortie.id == '2' %}
+        {% elseif sortie.etatSortie.libelle == 'Ouverte' %}
         <td class="text-success">Ouverte</td>
-        {% elseif sortie.etatSortie.id == '3' %}
+        {% elseif sortie.etatSortie.libelle == 'Cloturée' %}
         <td class="text-warning">Cloturée</td>
-        {% elseif sortie.etatSortie.id == '4' %}
+        {% elseif sortie.etatSortie.libelle == 'En cours' %}
         <td>En cours</td>
-        {% elseif sortie.etatSortie.id == '5' %}
+        {% elseif sortie.etatSortie.libelle == 'Passée' %}
         <td class="text-danger">Passée</td>
-        {% elseif sortie.etatSortie.id == '6' %}
+        {% elseif sortie.etatSortie.libelle == 'Annulée' %}
         <td class="text-danger">Annulée</td>
         {% endif %}
 
@@ -88,9 +88,9 @@
         <td>
             {# actions si user organisateur #}
             {% if sortie.participantOrganisateur %}
-            {% if app.user.username in sortie.participantOrganisateur.username and sortie.etatSortie.id == '1' %}
+            {% if app.user.username in sortie.participantOrganisateur.username and sortie.etatSortie.libelle == 'Créée' %}
             <a href="{{ path('sortie_modifier', {'id': sortie.id}) }}">Modifier</a> - <a onclick="alert('Pour publier votre sortie, cliquez sur PUBLIER LA SORTIE dans le formulaire')" href="{{ path('sortie_modifier', {'id': sortie.id}) }}">Publier</a>
-            {% elseif app.user.username in sortie.participantOrganisateur.username and sortie.etatSortie.id == '2'%}
+            {% elseif app.user.username in sortie.participantOrganisateur.username and sortie.etatSortie.libelle == 'Ouverte'%}
             <a href="{{ path('sorties_detail', {'id': sortie.id}) }}">Afficher</a> - <a href="{{ path('sortie_annuler', {'id': sortie.id}) }}">Annuler</a>
             {% elseif app.user.username in sortie.participantOrganisateur.username %}
             <a href="{{ path('sorties_detail', {'id': sortie.id}) }}">Afficher</a>
@@ -101,7 +101,7 @@
             {% if sortie.participantOrganisateur %}
             {% if app.user.username not in sortie.participantOrganisateur.username %}
             <a href="{{ path('sorties_detail', {'id': sortie.id}) }}">Afficher</a>
-            {% if sortie.etatSortie.id == '2' %}
+            {% if sortie.etatSortie.libelle == 'Ouverte' %}
                 {# si sortie ouverte: s'inscrire/se désister #}
                 {% if app.user in sortie.participants %}
                  - <a href="{{ path('desister', {'id': sortie.id}) }}">Se désister</a>

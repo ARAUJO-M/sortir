@@ -63,6 +63,8 @@ class SortieRepository extends ServiceEntityRepository
 
         //selection de la sortie et de son campus orga + état qui doit être en sortie créée
         $qb = $this->createQueryBuilder('s');
+        $qb = $qb->addSelect('e')
+                 ->leftJoin('s.etatSortie', 'e');
 
         //condition si le champ campus est indiqué
         if(!empty($data->campus)){
@@ -87,25 +89,21 @@ class SortieRepository extends ServiceEntityRepository
 
         } else {
             if($data->inscrit == true){
-                $qb = $qb->addSelect('i') //alias inscrit
-                         ->join('s.participants', 'i')
-                         ->andWhere('i.id = (:participant)')
+                $qb = $qb
+                         ->andWhere(':participant member of s.participants')
                          ->setParameter('participant', $getUser);
             }
 
             if($data->nonInscrit == true){
-               $qb = $qb->addSelect('ni') //alias non inscrit
-                        ->leftJoin('s.participants', 'ni')
-                        ->andWhere('ni.id is null OR ni.id != (:participant)')
+               $qb = $qb
+                        ->andWhere(':participant not member of s.participants')
                         ->setParameter('participant', $getUser);
             }
         }
 
         if($data->sortiePassee == true){
-            $qb = $qb->addSelect('e')
-                     ->leftJoin('s.etatSortie', 'e')
-                     ->andWhere('e.id = (:etat)')
-                     ->setParameter('etat', '5'); //paramètre à 5 id qui équivaut à "passée"
+              $qb = $qb->andWhere('e.libelle = (:etat)')
+                       ->setParameter('etat', 'Passée'); //paramètre à 5 id qui équivaut à "passée"
         }
 
         if($data->dateHeureDebut !== null){

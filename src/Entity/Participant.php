@@ -78,6 +78,7 @@ class Participant implements UserInterface
     private $actif;
 
     /**
+     * @ORM\JoinColumn(nullable = false)
      * @ORM\ManyToOne(targetEntity="App\Entity\Campus", inversedBy="participants", cascade={"persist"})
      */
     private $campus;
@@ -289,12 +290,15 @@ class Participant implements UserInterface
     //méthodes implémentées de UserInterface
     public function getRoles(): array
     {
-        return ['ROLE_USER'];
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+        return array_unique($roles);
     }
 
-    public function setRoles($roles): Participant
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+        return $this;
     }
 
     public function getPassword()

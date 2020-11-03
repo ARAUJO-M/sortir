@@ -39,8 +39,17 @@ class GoOutController extends AbstractController
 
         $sortiesFiltrees = $sortieRepository->trouverSortie($data, $getUser);
 
+        //états
+        $etatCreation = $etatRepository->findOneBy(['libelle' => 'Créée']);
+        $etatOuverte = $etatRepository->findOneBy(['libelle' => 'Ouverte']);
+        $etatCloture = $etatRepository->findOneBy(['libelle' => 'Cloturée']);
+        $etatEncours = $etatRepository->findOneBy(['libelle' => 'En cours']);
+        $etatPassee = $etatRepository->findOneBy(['libelle' => 'Passée']);
+        $etatAnnulee = $etatRepository->findOneBy(['libelle' => 'Annulée']);
+        $etatArchive = $etatRepository->findOneBy(['libelle' => 'Archivée']);
 
-    // gestion des états
+
+    // gestion des états automatique
         foreach ($sorties as $sortie){
 
             $dateJour = new \DateTime('now');
@@ -50,33 +59,35 @@ class GoOutController extends AbstractController
             $inscriptionsMax = $sortie->getNbInscriptionsMax();
 
 
-            if($sortie->getEtatSortie() != '1'){
+            if($sortie->getEtatSortie() != $etatCreation){
 
             // archivage automatique sorties de + 1 mois
-            $moisLimite = new \DateTime('now');
-            $moisLimite->modify('-1 month');
+            $moisLimite = new \DateTime('now'); //30 octobre
+            $moisLimite->modify('-1 month'); //30septembre
 
             if($sortie->getDateHeureDebut() < $moisLimite) {
-                $etat = $etatRepository->findOneBy(['id' => '7']);
-                $sortie->setEtatSortie($etat);
+                $sortie->setEtatSortie($etatArchive);
                 $em->persist($sortie);
             }
+
             //clôturée
-            elseif($sortie->getEtatSortie() == '2' and ($dateLimiteSortie < $dateJour or count($participants) == $inscriptionsMax)){
-                 $etat = $etatRepository->findOneBy(['id' => '3']);
-                 $sortie->setEtatSortie($etat);
+            elseif($sortie->getEtatSortie() == $etatOuverte and ($dateLimiteSortie < $dateJour or count($participants) == $inscriptionsMax)){
+
+                 $sortie->setEtatSortie($etatCloture);
                  $em->persist($sortie);
                 }
+
             //en cours
             elseif ($dateSortie == $dateJour){
-                $etat = $etatRepository->findOneBy(['id' => '4']);
-                $sortie->setEtatSortie($etat);
+
+                $sortie->setEtatSortie($etatEncours);
                 $em->persist($sortie);
             }
+
             //passée
             elseif ($dateSortie < $dateJour){
-                $etat = $etatRepository->findOneBy(['id' => '5']);
-                $sortie->setEtatSortie($etat);
+
+                $sortie->setEtatSortie($etatPassee);
                 $em->persist($sortie);
             }
 
@@ -101,7 +112,9 @@ class GoOutController extends AbstractController
     {
         //Récupération de la sortie pour son id
        $sortie = $repository->findOneBy(['id'=>$id]); //selectionne l'id de la sortie
-
+        if(!$sortie){
+            throw  $this->createNotFoundException("Sortie inexistante");
+        }
 
         return $this->render('sortie/SortieDetail.html.twig', [
             'sortie' => $sortie
@@ -142,9 +155,9 @@ class GoOutController extends AbstractController
                 //attribution des différents états à une sortie
                 $etat = null;
                 if (isset($_POST['enregistrer'])) {
-                    $etat = $etatRepository->findOneBy(['id' => '1']);
+                    $etat = $etatRepository->findOneBy(['libelle' => 'Créée']);
                 } elseif (isset($_POST['publier'])) {
-                    $etat = $etatRepository->findOneBy(['id' => '2']);
+                    $etat = $etatRepository->findOneBy(['libelle' => 'Ouverte']);
                 }
 
                 $sortie->setCampusOrganisateur($campus);
@@ -182,20 +195,20 @@ class GoOutController extends AbstractController
         // Création du formulaire
         $modifierSortieForm = $this->createForm(ModifierSortieType::class, $sortie);
         $modifierSortieForm->handleRequest($request);
-        $etat = $etatRepository->findOneBy(['id' => '1']);
+        $etat = $etatRepository->findOneBy(['libelle' => 'Créée']);
 
         if($sortie->getEtatSortie() == $etat) {
             if ($modifierSortieForm->isSubmitted() && $modifierSortieForm->isValid()) {
 
                 // si enregistrer ou publier
                 if (isset($_POST['enregistrer'])) {
-                    $etat = $etatRepository->findOneBy(['id' => '1']);
+                    $etat = $etatRepository->findOneBy(['libelle' => 'Créée']);
                     $sortie->setEtatSortie($etat);
                     $em->persist($sortie);
                     $em->flush();
                     $this->addFlash('success', 'Sortie enregistrée');
                 } elseif (isset($_POST['publier'])) {
-                    $etat = $etatRepository->findOneBy(['id' => '2']);
+                    $etat = $etatRepository->findOneBy(['libelle' => 'Ouverte']);
                     $sortie->setEtatSortie($etat);
                     $em->persist($sortie);
                     $em->flush();
@@ -242,7 +255,7 @@ class GoOutController extends AbstractController
 
           if($dateJour < $dateSortie) {
               if ($annulerSortieForm->isSubmitted() && $annulerSortieForm->isValid()) {
-                  $sortie->setEtatSortie($etat = $etatRepository->find('6')); //passage de l'état en Annulée (id 6 en bdd)
+                  $sortie->setEtatSortie($etat = $etatRepository->findOneBy(['libelle' => 'Annulée']));
 
 
 

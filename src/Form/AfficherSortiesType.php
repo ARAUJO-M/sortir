@@ -44,7 +44,7 @@ class AfficherSortiesType extends AbstractType
 
             ->add('organisateur', CheckboxType::class, ['label' => 'Sorties dont je suis l\'organisateur/trice', 'required' => false])
             ->add('inscrit', CheckboxType::class, ['label' => 'Sorties auxquelles je suis inscrit/e', 'required' => false])
-            ->add('nonInscrit', CheckboxType::class, ['label' => 'Sorties auxquelles je ne suis pasinscrit/e', 'required' => false])
+            ->add('nonInscrit', CheckboxType::class, ['label' => 'Sorties auxquelles je ne suis pas inscrit/e', 'required' => false])
             ->add('sortiePassee', CheckboxType::class, ['label' => 'Sorties passées', 'required' => false])
 
         ;
