@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
+
+    <expand />
+    <select />
+
     <expand>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
@@ -19,21 +23,77 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:dev" type="e8cecc67:BranchNodeDescriptor" />
+
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
         <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
+
+    <list default="true" id="fcd7049f-1f40-4173-bf52-b9cb1f4779da" name="Default Changelist" comment=""/>
+    <list default="true" id="96433cca-d85a-4b31-a99c-b5bd57f095a1" name="Default Changelist" comment=""/>
+      <change afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bootstrap-4.5.2/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/inc/footer.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/inc/nav.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/bootstrap_4_layout.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/login.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/profile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_10_2020_09_53_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_10_2020_09_53__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_10_2020_09_56_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_10_2020_09_56__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_10_2020_10_26_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_10_2020_10_26_[Default_Changelist]1/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_10_2020_10_26__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_10_2020_10_30_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_10_2020_10_30_[Default_Changelist]1/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GoOutController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sortir.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sortir.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html.twig" afterDir="false" />
+    </component>
+
     <list default="true" id="fcd7049f-1f40-4173-bf52-b9cb1f4779da" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
+
+  </project>
+
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
@@ -41,7 +101,11 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
+
+        <entry key="$PROJECT_DIR$" value="mydrieInstall" />
+
         <entry key="$PROJECT_DIR$" value="master" />
+
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -117,9 +181,22 @@
       <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />
       <path value="$PROJECT_DIR$/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/inflector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+
     </include_path>
   </component>
   <component name="ProjectId" id="1irXhuQ34ZggrZ3mGF5UdUjVZVB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -141,7 +218,16 @@
       <updated>1602666807015</updated>
       <workItem from="1602666808187" duration="25000" />
       <workItem from="1602688560048" duration="2577000" />
+
+      <workItem from="1602701335055" duration="4405000" />
+      <workItem from="1602746639324" duration="4131000" />
       <workItem from="1602701335055" duration="2299000" />
+      <workItem from="1602775244547" duration="650000" />
+      <workItem from="1602784785041" duration="15464000" />
+      <workItem from="1602832889222" duration="380000" />
+
+      <workItem from="1602701335055" duration="2299000" />
+
     </task>
     <task id="LOCAL-00001" summary="install composer - asset/twig/debug/doctrine">
       <created>1602689877817</created>
@@ -149,8 +235,28 @@
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1602689877817</updated>
+
+    </task>
+    <task id="LOCAL-00002" summary="install composer maker/validator, création des entités participant/sortie/ville/etat/lieu/campus et validator, début configuration repository participant">
+      <created>1602808984624</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602808984624</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00002" summary="install composer - asset/twig/debug/doctrine">
+      <created>1602703655762</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602703655762</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+
     </task>
     <option name="localTasksCounter" value="2" />
+
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +265,33 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+
         <entry key="MAIN">
           <value>
             <State>
@@ -172,7 +305,12 @@
                   <entry key="branch">
                     <value>
                       <list>
+
+                        <option value="dev" />
+                        <option value="feature-controller" />
+
                         <option value="mydrieInstall" />
+
                       </list>
                     </value>
                   </entry>
@@ -183,6 +321,13 @@
         </entry>
       </map>
     </option>
+
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
+
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -190,6 +335,18 @@
             <list>
               <RecentGroup>
                 <option name="FILTER_VALUES">
+
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="feature-controller" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+
                   <option value="mydrieInstall" />
                 </option>
               </RecentGroup>
@@ -198,37 +355,114 @@
         </entry>
       </map>
     </option>
+
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="install composer - asset/twig/debug/doctrine" />
+    <MESSAGE value="Revert &quot;Realisation des controlleurs : Admin, User et GoOut + realisation des templates associé&quot;&#10;&#10;This reverts commit d04d96b6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;Realisation des controlleurs : Admin, User et GoOut + realisation des templates associé&quot;&#10;&#10;This reverts commit d04d96b6" />
+    <MESSAGE value="install composer maker/validator, création des entités participant/sortie/ville/etat/lieu/campus et validator, début configuration repository participant" />
+    <option name="LAST_COMMIT_MESSAGE" value="install composer maker/validator, création des entités participant/sortie/ville/etat/lieu/campus et validator, début configuration repository participant" />
+
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="install composer - asset/twig/debug/doctrine" />
     <option name="LAST_COMMIT_MESSAGE" value="install composer - asset/twig/debug/doctrine" />
+
   </component>
   <component name="WindowStateProjectService">
     <state x="293" y="215" key="#Notifications" timestamp="1602702288902">
       <screen x="0" y="0" width="1200" height="862" />
     </state>
     <state x="293" y="215" key="#Notifications/0.0.1200.862@0.0.1200.862" timestamp="1602702288902" />
+
+    <state x="409" y="130" key="#com.intellij.ide.util.MemberChooser" timestamp="1602798153799">
+      <screen x="0" y="0" width="1812" height="840" />
+    </state>
+    <state x="409" y="130" key="#com.intellij.ide.util.MemberChooser/0.0.1812.840@0.0.1812.840" timestamp="1602798153799" />
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1602808983765"/>
+      <screen x="0" y="0" width="1592" height="846" />
+    <state x="143" y="0" key="CommitChangelistDialog2" timestamp="1602703655029">
+      <screen x="0" y="0" width="1024" height="862" />
+    </state>
+    <state x="143" y="0" key="CommitChangelistDialog2/0.0.1024.862@0.0.1024.862" timestamp="1602703655029" />
+    <state x="167" y="0" key="CommitChangelistDialog2/0.0.1200.862@0.0.1200.862" timestamp="1602689876988" />
+    <state width="277" height="442" key="Diff.GoToChangePopup" timestamp="1602839664817">
+      <screen x="0" y="0" width="1920" height="928" />
+    </state>
+    <state width="277" height="442" key="Diff.GoToChangePopup/0.0.1920.928@0.0.1920.928" timestamp="1602839664817" />
+    <state x="348" y="86" width="1409" height="744" key="DiffContextDialog" timestamp="1602849334732">
+      <screen x="0" y="0" width="1920" height="928" />
+    </state>
+    <state x="348" y="86" width="1409" height="744" key="DiffContextDialog/0.0.1920.928@0.0.1920.928" timestamp="1602849334732" />
+    <state x="740" y="219" key="FileChooserDialogImpl" timestamp="1602848515977">
+      <screen x="0" y="0" width="1920" height="928" />
+    </state>
+    <state x="740" y="219" key="FileChooserDialogImpl/0.0.1920.928@0.0.1920.928" timestamp="1602848515977" />
+    <state x="203" y="0" key="CommitChangelistDialog2/0.0.1456.752@0.0.1456.752" timestamp="1602808448498" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1592.846@0.0.1592.846" timestamp="1602808983765" />
+    <state x="964" y="188" key="FileChooserDialogImpl" timestamp="1602784857979">
+      <screen x="0" y="0" width="1822" height="888" />
+    </state>
+    <state x="964" y="188" key="FileChooserDialogImpl/0.0.1822.888@0.0.1822.888" timestamp="1602784857979" />
+
     <state x="167" y="0" key="CommitChangelistDialog2" timestamp="1602689876988">
       <screen x="0" y="0" width="1200" height="862" />
     </state>
     <state x="167" y="0" key="CommitChangelistDialog2/0.0.1200.862@0.0.1200.862" timestamp="1602689876988" />
+
     <state x="420" y="289" key="Github.ShareDialog" timestamp="1602702680472">
       <screen x="0" y="0" width="1200" height="862" />
     </state>
     <state x="420" y="289" key="Github.ShareDialog/0.0.1200.862@0.0.1200.862" timestamp="1602702680472" />
+
+    <state x="361" y="159" key="IDE.errors.dialog" timestamp="1602808027122">
+      <screen x="0" y="0" width="1812" height="840" />
+    </state>
+    <state x="361" y="159" key="IDE.errors.dialog/0.0.1812.840@0.0.1812.840" timestamp="1602808027122" />
+
     <state x="269" y="2" key="SettingsEditor" timestamp="1602666832610">
       <screen x="0" y="0" width="1536" height="714" />
     </state>
     <state x="269" y="2" key="SettingsEditor/0.0.1536.714@0.0.1536.714" timestamp="1602666832610" />
+
+    <state x="204" y="124" key="Vcs.Push.Dialog.v2" timestamp="1602752141338"/>
+      <screen x="0" y="0" width="1836" height="862" />
+    <state x="177" y="122" key="Vcs.Push.Dialog.v2" timestamp="1602809012031">
+      <screen x="0" y="0" width="1592" height="846" />
+    </state>
+    <state x="114" y="124" key="Vcs.Push.Dialog.v2/0.0.1024.862@0.0.1024.862" timestamp="1602706037663" />
+    <state x="134" y="124" key="Vcs.Push.Dialog.v2/0.0.1200.862@0.0.1200.862" timestamp="1602702595016" />
+    <state x="204" y="124" key="Vcs.Push.Dialog.v2/0.0.1836.862@0.0.1836.862" timestamp="1602752141338" />
+    <state x="652" y="198" key="VcsDiffUtil.ChangesDialog" timestamp="1602838558768">
+      <screen x="0" y="0" width="1920" height="928" />
+    </state>
+    <state x="652" y="198" key="VcsDiffUtil.ChangesDialog/0.0.1920.928@0.0.1920.928" timestamp="1602838558768" />
+    <state x="93" y="57" width="1736" height="744" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1602848347808">
+      <screen x="0" y="0" width="1920" height="928" />
+    </state>
+    <state x="93" y="57" width="1736" height="744" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.928@0.0.1920.928" timestamp="1602848347808" />
+    <state x="162" y="108" key="Vcs.Push.Dialog.v2/0.0.1456.752@0.0.1456.752" timestamp="1602808311966" />
+    <state x="177" y="122" key="Vcs.Push.Dialog.v2/0.0.1592.846@0.0.1592.846" timestamp="1602809012031" />
+
     <state x="114" y="124" key="Vcs.Push.Dialog.v2" timestamp="1602703156919">
       <screen x="0" y="0" width="1024" height="862" />
     </state>
     <state x="114" y="124" key="Vcs.Push.Dialog.v2/0.0.1024.862@0.0.1024.862" timestamp="1602703156919" />
     <state x="134" y="124" key="Vcs.Push.Dialog.v2/0.0.1200.862@0.0.1200.862" timestamp="1602702595016" />
+
     <state x="359" y="305" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602701512124">
       <screen x="0" y="0" width="1200" height="862" />
     </state>
     <state x="359" y="305" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1200.862@0.0.1200.862" timestamp="1602701512124" />
+
+    <state x="524" y="104" key="git4idea.branch.GitSmartOperationDialog" timestamp="1602749531027">
+      <screen x="0" y="0" width="1836" height="862" />
+    </state>
+    <state x="292" y="104" key="git4idea.branch.GitSmartOperationDialog/0.0.1024.862@0.0.1024.862" timestamp="1602705880255" />
+    <state x="524" y="104" key="git4idea.branch.GitSmartOperationDialog/0.0.1836.862@0.0.1836.862" timestamp="1602749531027" />
+
     <state x="342" y="292" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602702716468">
       <screen x="0" y="0" width="1200" height="862" />
     </state>

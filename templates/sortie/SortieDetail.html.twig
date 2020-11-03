@@ -1,0 +1,241 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} {{ parent() }} | Détails sortie{% endblock %}
+
+{% block main %}
+
+    <div class="container">
+
+        <div class="row mb-4 mt-4">
+            <div class="col text-center">
+                <h2>Afficher une sortie</h2>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-5">
+
+
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        Nom de la sortie
+                    </div>
+                    <div class="col-lg-6">
+                        {{ sortie.nom }}
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        Date et heure de la sortie
+                    </div>
+                    <div class="col-lg-6">
+                        {{ sortie.dateHeureDebut | format_datetime(locale='fr') }}
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        Date limite d'inscription
+                    </div>
+                    <div class="col-lg-6">
+                        {{ sortie.dateLimiteInscription | format_datetime(locale='fr') }}
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        Nombre de places
+                    </div>
+                    <div class="col-lg-6">
+                        {{ sortie.nbInscriptionsMax }} places
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        Durée
+                    </div>
+                    <div class="col-lg-6">
+                        {{ sortie.duree | number_format }} minutes
+                    </div>
+                </div>
+
+                {% if (sortie.etatSortie.libelle != 'Annulée') %}
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        Description et information
+                    </div>
+                    <div class="col-lg-6">
+                        {{ sortie.infosSortie }}
+                    </div>
+                </div>
+                {% else %}
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                             Motif d'annulation
+                        </div>
+                        <div class="col-lg-6">
+                            {{ sortie.infosSortie }}
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+            <div class="col-lg-5">
+
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        Campus
+                    </div>
+                        <div class="col-lg-6">
+                            {{ sortie.campusOrganisateur.nom }}
+                        </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        Lieu
+                    </div>
+                    {% if sortie.lieu is defined and sortie.lieu.nom is defined %}
+                        <div class="col-lg-6">
+                            {{ sortie.lieu.nom }}
+                        </div>
+                    {% else %}
+                        <div class="col-lg-6">
+                            Pas de lieu mentionné
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        Rue
+                    </div>
+                    {% if sortie.lieu is not null and sortie.lieu.rue is not null %}
+                        <div class="col-lg-6">
+                            {{ sortie.lieu.rue }}
+                        </div>
+                    {% else %}
+                        <div class="col-lg-6">
+                            Pas de rue mentionnée
+                        </div>
+                    {% endif %}
+                </div>
+
+               {% if sortie.lieu is not null and sortie.lieu.ville is not null %}
+                   <div class="form-group row">
+                       <div class="col-lg-6">
+                           Code postal
+                       </div>
+                       <div class="col-lg-6">
+                           {{ sortie.lieu.ville.codePostal }}
+                       </div>
+                   </div>
+                   <div class="form-group row">
+                       <div class="col-lg-6">
+                           Ville
+                       </div>
+                       <div class="col-lg-6">
+                           {{ sortie.lieu.ville.nom }}
+
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            Code postal
+                        </div>
+                        <div class="col-lg-6">
+                            Pas de code postal mentionné
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            Ville
+                        </div>
+                        <div class="col-lg-6">
+                            Pas de ville mentionnée
+                        </div>
+                    </div>
+                {% endif %}
+
+
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        Latitude
+                    </div>
+                    {% if sortie.lieu is not null and sortie.lieu.latitude is not null %}
+                        <div class="col-lg-6">
+                            {{ sortie.lieu.latitude }}
+                        </div>
+                    {% else %}
+                        <div class="col-lg-6">
+                            Pas de latitude mentionnée
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        Longitude
+                    </div>
+                    {% if sortie.lieu is not null and sortie.lieu.longitude is not null %}
+                        <div class="col-lg-6">
+                            {{ sortie.lieu.longitude }}
+                        </div>
+                    {% else %}
+                        <div class="col-lg-6">
+                            Pas de longitude mentionnée
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+            <div class="row mb-4 mt-4">
+                <div class="col text-center">
+                    <h4>Liste des participants inscrits</h4>
+                </div>
+            </div>
+            <div id="table-body-scrollbar" class="row">
+                <table class="table table-sm table-bordered table-hover">
+                    <thead class="thead-light">
+                    <tr class="text-center">
+                        <th width=50%>Pseudo</th>
+                        <th width=50%>Nom et Prénom</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if sortie.participants is defined and sortie.participants is not empty %}
+                    {% for participant in sortie.participants %}
+                    <tr class="text-center">
+                        <td>
+                            <a href="{{ path('autre_profil', {'id': participant.id}) }}">{{ participant.username | upper}}</a>
+                        </td>
+                        <td>{{ participant.prenom | capitalize}} {{ participant.nom | upper }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <th class="text-center" colspan=2>Aucun participant</th>
+                    </tr>
+
+                    {% endif %}
+                    </tbody>
+                </table>
+
+
+        </div>
+
+
+    </div>
+
+{% endblock %}
+
+
+

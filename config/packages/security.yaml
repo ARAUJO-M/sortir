@@ -1,0 +1,50 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        our_db_provider:
+            entity:
+                class: App\Entity\Participant
+                property: username
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+            logout:
+                path: app_logout
+                target: app_login
+            provider: our_db_provider
+
+
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
+                entry_point: App\Security\LoginFormAuthenticator
+
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+                path: /
+                # by default, the feature is enabled by checking a
+                # checkbox in the login form (see below), uncomment the
+                # following line to always enable it.
+                #always_remember_me: true
+
+    encoders:
+        App\Entity\Participant:
+            algorithm: bcrypt
+
+
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/villes, roles: ROLE_ADMIN }
+        - { path: ^/campus, roles: ROLE_ADMIN }
+        - { path: ^/, roles: ROLE_USER }
+
+    role_hierarchy:
+       ROLE_ADMIN: ROLE_USER
+
