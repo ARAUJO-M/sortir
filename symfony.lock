@@ -23,9 +23,11 @@
     "doctrine/common": {
         "version": "3.0.2"
     },
+
     "doctrine/data-fixtures": {
         "version": "1.4.4"
     },
+
     "doctrine/dbal": {
         "version": "2.10.4"
     },
@@ -44,6 +46,7 @@
             "./src/Repository/.gitignore"
         ]
     },
+
     "doctrine/doctrine-fixtures-bundle": {
         "version": "3.0",
         "recipe": {
@@ -56,6 +59,7 @@
             "./src/DataFixtures/AppFixtures.php"
         ]
     },
+
     "doctrine/doctrine-migrations-bundle": {
         "version": "2.2",
         "recipe": {
@@ -96,9 +100,11 @@
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
+
     "fzaninotto/faker": {
         "version": "v1.9.1"
     },
+
     "monolog/monolog": {
         "version": "1.25.5"
     },
@@ -289,6 +295,7 @@
             "./config/packages/test/monolog.yaml"
         ]
     },
+
     "symfony/options-resolver": {
         "version": "v4.4.15"
     },
@@ -298,6 +305,7 @@
     "symfony/polyfill-intl-icu": {
         "version": "v1.18.1"
     },
+
     "symfony/polyfill-intl-idn": {
         "version": "v1.18.1"
     },
@@ -348,6 +356,7 @@
     "symfony/stopwatch": {
         "version": "v4.4.15"
     },
+
     "symfony/translation": {
         "version": "3.3",
         "recipe": {
@@ -361,6 +370,7 @@
             "./translations/.gitignore"
         ]
     },
+
     "symfony/translation-contracts": {
         "version": "v2.3.0"
     },
@@ -384,6 +394,7 @@
     "symfony/twig-pack": {
         "version": "v1.0.0"
     },
+
     "symfony/validator": {
         "version": "4.3",
         "recipe": {
@@ -397,6 +408,7 @@
             "./config/packages/validator.yaml"
         ]
     },
+
     "symfony/var-dumper": {
         "version": "v4.4.15"
     },
@@ -423,9 +435,11 @@
     "twig/extra-bundle": {
         "version": "v3.0.5"
     },
+
     "twig/intl-extra": {
         "version": "v3.1.0"
     },
+
     "twig/twig": {
         "version": "v3.0.5"
     },
