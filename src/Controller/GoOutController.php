@@ -62,8 +62,8 @@ class GoOutController extends AbstractController
             if($sortie->getEtatSortie() != $etatCreation){
 
             // archivage automatique sorties de + 1 mois
-            $moisLimite = new \DateTime('now'); //30 octobre
-            $moisLimite->modify('-1 month'); //30septembre
+            $moisLimite = new \DateTime('now');
+            $moisLimite->modify('-1 month');
 
             if($sortie->getDateHeureDebut() < $moisLimite) {
                 $sortie->setEtatSortie($etatArchive);
